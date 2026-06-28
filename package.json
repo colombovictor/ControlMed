@@ -1,0 +1,25 @@
+{
+  "name": "controlmed",
+  "version": "1.0.0",
+  "description": "💊 Sistema Inteligente de Controle de Medicamentos para Idosos\r 📌 Sobre o Projeto",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && node ./dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/colombovictor/ControlMed.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/colombovictor/ControlMed/issues"
+  },
+  "homepage": "https://github.com/colombovictor/ControlMed#readme",
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}
