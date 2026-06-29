@@ -1,45 +1,87 @@
-export function Medicamentos():void{
-    class Medicamento {
-    id: number
-    nome: string
-    dosagem: string
-    estoque: number
-    horarios: string[]
-    tomadoHoje: boolean = false
+export class Medicamento {
+    private _id: number;
+    nome: string;
+    dosagem: string;
+    estoque: number;
+    validade: Date;
+    horarios: string[];
+    tomadoHoje: boolean;
 
-    constructor(id:number, nome:string, dosagem:string, estoque:number, horarios: string[], tomadoHoje: boolean){
-        this.id = id
-        this.nome = nome
-        this.dosagem =dosagem
-        this.estoque = estoque
-        this.horarios = horarios
-        this.tomadoHoje = tomadoHoje
+    constructor(_id: number,nome: string,dosagem: string,estoque: number,validade: Date,horarios: string[])
+        {
+
+        this._id = _id;
+        this.nome =nome;
+        this.dosagem= dosagem;
+        this.estoque= estoque;
+        this.validade= validade;
+        this.horarios = horarios;
+        this.tomadoHoje = false;
+
     }
-    tomar(){
-        this.estoque--
-        this.tomadoHoje = true
-    }
-    alterar_Estoque(estque:number){
-        this.estoque = Number(prompt(`Infome a nova quantidade do estoque: `))
-    }
-    verificar_Estoque(estoque:number){
-        if (this.estoque <= 5){
-            console.log(`Estoque baixo
-    Quantidade em estoque: ${this.estoque}`)
-        }else{
-            console.log(`Quantidade em estoque: ${this.estoque}`)
+    public tomar(): void {
+
+        if (this.estoque = 0) {
+
+            console.log("Medicamento sem estoque.");
+
+            return;
+
         }
+
+        else if (this.tomadoHoje) {
+
+            console.log("Medicamento já foi tomado hoje.");
+
+            return;
+
+        }
+
+        this.tomadoHoje = true;
+
+        this.estoque--;
+
+        console.log(`${this.nome} tomado com sucesso.`);
+
     }
 
+    public verificarEstoque(): boolean {
 
+        return this.estoque <= 5;
 
-    alterar_Horario(horarios: string){
-        this.horarios[0] = String(prompt(`Informe o nova hora: `))
-        this.horarios[1] = String(prompt(`Informe a nova minutagem: `))
     }
-    alterar_dosagem(dosagem:string){
-        this.dosagem = String(prompt(`Informe a nova dosagem: `))
+    public alterarEstoque(novoEstoque: number): void {
+        if (novoEstoque < 0) {
+            throw new Error("O estoque não pode ser negativo.");
+        }
+
+        this.estoque = novoEstoque;
     }
-}
+
+    public editar(nome: string,dosagem: string,horarios: string[]): void {
+
+        this.nome = nome;
+        this.dosagem = dosagem;
+        this.horarios = horarios;
+
+    }
+
+    public resetarDia(): void {
+
+        this.tomadoHoje = false;
+
+    }
+
+    public mostrarInformacoes(): void {
+
+        console.log("Nome:", this.nome);
+
+        console.log("Dosagem:", this.dosagem);
+
+        console.log("Estoque:", this.estoque);
+
+        console.log("Horários:", this.horarios);
+
+    }
 
 }
