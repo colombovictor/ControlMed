@@ -114,3 +114,333 @@ body{
     }
 
 }
+
+
+/* =========================
+    RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --primary:#5b34f2;
+    --primary-dark:#4725cf;
+    --background:#f4f6fb;
+    --white:#ffffff;
+    --text:#1f2937;
+    --text-light:#6b7280;
+    --border:#e5e7eb;
+    --shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:linear-gradient(
+        135deg,
+        #eef2ff,
+        #f8fafc
+    );
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+}
+
+/* =========================
+    LOGIN CONTAINER
+========================= */
+
+.login-container{
+    width:100%;
+    max-width:430px;
+}
+
+/* =========================
+    LOGIN BOX
+========================= */
+
+.login-box{
+
+    width:100%;
+
+    background:var(--white);
+
+    padding:35px 25px;
+
+    border-radius:32px;
+
+    box-shadow:var(--shadow);
+
+    animation:fade 0.4s ease;
+}
+
+/* =========================
+    TOPO
+========================= */
+
+.login-topo{
+    margin-bottom:30px;
+}
+
+.login-topo h2{
+
+    font-size:34px;
+
+    color:var(--text);
+
+    margin-bottom:10px;
+}
+
+.login-topo p{
+
+    color:var(--text-light);
+
+    font-size:15px;
+
+    line-height:1.5;
+}
+
+/* =========================
+    FORM
+========================= */
+
+.formulario{
+
+    display:flex;
+    flex-direction:column;
+
+    gap:22px;
+}
+
+/* =========================
+    CAMPOS
+========================= */
+
+.campo{
+    display:flex;
+    flex-direction:column;
+}
+
+.campo label{
+
+    margin-bottom:10px;
+
+    font-size:14px;
+    font-weight:600;
+
+    color:var(--text);
+}
+
+/* =========================
+    INPUT ICON
+========================= */
+
+.input-icon{
+    position:relative;
+}
+
+.input-icon i{
+
+    position:absolute;
+
+    left:18px;
+    top:18px;
+
+    color:#9ca3af;
+
+    font-size:15px;
+}
+
+.input-icon input{
+
+    width:100%;
+
+    height:55px;
+
+    padding-left:50px;
+    padding-right:16px;
+
+    border:1.5px solid var(--border);
+
+    border-radius:16px;
+
+    outline:none;
+
+    font-size:15px;
+
+    background:#fafafa;
+
+    transition:0.3s;
+}
+
+/* =========================
+    INPUT FOCUS
+========================= */
+
+.input-icon input:focus{
+
+    border-color:var(--primary);
+
+    background:var(--white);
+
+    box-shadow:0 0 0 4px rgba(91,52,242,0.10);
+}
+
+/* =========================
+    OPTIONS
+========================= */
+
+.login-options{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:10px;
+}
+
+.remember{
+
+    display:flex;
+    align-items:center;
+
+    gap:8px;
+
+    font-size:14px;
+
+    color:var(--text-light);
+}
+
+.login-options a{
+
+    text-decoration:none;
+
+    color:var(--primary);
+
+    font-size:14px;
+    font-weight:600;
+}
+
+/* =========================
+    BOTÃO
+========================= */
+
+.btn-login{
+
+    width:100%;
+    height:58px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        #7b5cff
+    );
+
+    color:white;
+
+    font-size:16px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.btn-login:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 20px rgba(91,52,242,0.20);
+}
+
+.btn-login:active{
+    transform:scale(0.98);
+}
+
+/* =========================
+    CADASTRO
+========================= */
+
+.cadastro-link{
+
+    margin-top:28px;
+
+    text-align:center;
+}
+
+.cadastro-link p{
+
+    color:var(--text-light);
+
+    font-size:14px;
+}
+
+.cadastro-link a{
+
+    color:var(--primary);
+
+    text-decoration:none;
+
+    font-weight:bold;
+}
+
+/* =========================
+    PLACEHOLDER
+========================= */
+
+::placeholder{
+    color:#9ca3af;
+}
+
+/* =========================
+    RESPONSIVO
+========================= */
+
+@media(max-width:500px){
+
+    .login-box{
+        padding:30px 20px;
+        border-radius:26px;
+    }
+
+    .login-topo h2{
+        font-size:28px;
+    }
+
+    .login-options{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+}
+
+/* =========================
+    ANIMAÇÃO
+========================= */
+
+@keyframes fade{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
