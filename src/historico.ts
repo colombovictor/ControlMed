@@ -2,7 +2,7 @@ import { Medicamento } from "./medicamento";
 
 export class Historico {
 
-    public id: number;
+    private id: number;
     public medicamento: Medicamento;
     public dataHora: Date;
     public status: string;
