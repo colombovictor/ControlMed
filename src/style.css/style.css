@@ -273,7 +273,7 @@ a{
 
 .topbar h1 {
     font-size: 22px;
-    color: #222;
+    color: #0800ff;
 }
 
 .topbar p {
@@ -312,12 +312,12 @@ a{
 .card h2 {
     font-size: 16px;
     margin-top: 8px;
-    color: #222;
+    color: #1900ff;
 }
 
 .card p {
     font-size: 12px;
-    color: #666;
+    color: #3700ff;
 }
 
 /* ATIVIDADE */
@@ -331,14 +331,14 @@ a{
 }
 
 .atividade-box {
-    background: white;
+    background: rgb(255, 255, 255);
     padding: 15px;
     border-radius: 15px;
 }
 
 .atividade-box p {
     font-size: 13px;
-    color: #444;
+    color: #071792;
     margin-bottom: 8px;
 }
 .btn-login{
