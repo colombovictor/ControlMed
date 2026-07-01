@@ -1,16 +1,10 @@
-/* =========================
-    RESET
-========================= */
+
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-/* =========================
-    BODY
-========================= */
 
 body{
     font-family: Arial, Helvetica, sans-serif;
@@ -25,9 +19,6 @@ body{
     padding: 20px;
 }
 
-/* =========================
-    CONTAINER PADRÃO
-========================= */
 
 .container,
 .login-container,
@@ -36,9 +27,6 @@ body{
     max-width: 420px;
 }
 
-/* =========================
-    BOX PADRÃO
-========================= */
 
 .box,
 .login-box,
@@ -54,9 +42,7 @@ body{
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 
-/* =========================
-    TOPO
-========================= */
+
 
 .topo,
 .login-topo,
@@ -87,9 +73,6 @@ body{
     line-height: 1.5;
 }
 
-/* =========================
-    FORMULÁRIO
-========================= */
 
 .formulario{
 
@@ -99,9 +82,7 @@ body{
     gap: 18px;
 }
 
-/* =========================
-    CAMPOS
-========================= */
+
 
 .campo{
 
@@ -119,9 +100,7 @@ body{
     color: #333;
 }
 
-/* =========================
-    INPUTS
-========================= */
+
 
 .campo input,
 .campo select,
@@ -156,9 +135,7 @@ body{
     border-color: #5b34f2;
 }
 
-/* =========================
-    INPUT COM ÍCONE
-========================= */
+
 
 .input-icon{
     position: relative;
@@ -178,9 +155,7 @@ body{
     padding-left: 45px;
 }
 
-/* =========================
-    BOTÕES
-========================= */
+
 
 button,
 .btn-login,
@@ -211,9 +186,7 @@ button:hover,
     background: #4725cf;
 }
 
-/* =========================
-    LINKS
-========================= */
+
 
 a{
     color: #5b34f2;
@@ -221,9 +194,7 @@ a{
     font-weight: bold;
 }
 
-/* =========================
-    LOGIN OPTIONS
-========================= */
+
 
 .login-options{
 
@@ -246,9 +217,7 @@ a{
     color: #666;
 }
 
-/* =========================
-    CENTRALIZAR LINKS
-========================= */
+
 
 .cadastro-link,
 .voltar-login{
@@ -258,9 +227,6 @@ a{
     margin-top: 20px;
 }
 
-/* =========================
-    RESPONSIVO
-========================= */
 
 @media(max-width:500px){
 
@@ -284,4 +250,119 @@ a{
         align-items: flex-start;
     }
 
+}
+
+
+.home-container {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* TOPO */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+
+    margin-bottom: 15px;
+}
+
+.topbar h1 {
+    font-size: 22px;
+    color: #222;
+}
+
+.topbar p {
+    font-size: 13px;
+    color: #666;
+}
+
+.perfil-btn {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 10px;
+    border: 1px solid #ddd;
+
+    background: white;
+}
+
+/* CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.card {
+    background: white;
+
+    padding: 15px;
+    border-radius: 15px;
+
+    text-align: left;
+
+    cursor: pointer;
+}
+
+.card h2 {
+    font-size: 16px;
+    margin-top: 8px;
+    color: #222;
+}
+
+.card p {
+    font-size: 12px;
+    color: #666;
+}
+
+/* ATIVIDADE */
+.atividade {
+    margin-top: 15px;
+}
+
+.atividade h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.atividade-box {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.atividade-box p {
+    font-size: 13px;
+    color: #444;
+    margin-bottom: 8px;
+}
+.btn-login{
+
+    width: 100%;
+
+    height: 50px;
+
+    background: #5b34f2;
+
+    color: white;
+
+    border-radius: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.btn-login:hover{
+    background: #4725cf;
 }
