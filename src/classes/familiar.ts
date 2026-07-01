@@ -10,10 +10,10 @@ class Familiar extends Usuario{
         this._responsavel = String(prompt(`Informe o nome do novo Responsavel pelo do familiar: `))
 
     }
-    set responsavel(_responsavel): string{
+    setResponsavel(responsavel:string): string{
         return this._responsavel
     }
-    get responsavel(_responsavel:string): string{
+    getResponsavel(responsavel:string): string{
         return this._responsavel
     }
 }
