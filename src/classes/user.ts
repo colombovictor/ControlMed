@@ -1,3 +1,5 @@
+import { Medicamento } from "./medicamento"
+import { Historico } from "./historico"
 export class Usuario {
     idUsuario: number
     nome: string
@@ -8,8 +10,20 @@ export class Usuario {
     sexo: string
     private _telefone: string
     private _doenca: string[]
+    private medicamentos: Medicamento[]
+    private historicos: Historico[]
 
-    constructor(idUsuario: number, nome: string, email: string, senha: string, sobrenome: string, dataNascimento: Date, sexo: string, telefone: string, doenca: string[]) {
+    constructor(
+        idUsuario: number,
+        nome: string,
+        sobrenome: string,
+        email: string,
+        senha: string,
+        dataNascimento: Date,
+        sexo: string,
+        telefone: string,
+        doenca: string[]
+    ) {
         this.idUsuario = idUsuario
         this.nome = nome
         this._email = email
@@ -19,13 +33,15 @@ export class Usuario {
         this.sexo = sexo
         this._telefone = telefone
         this._doenca = doenca
+        this.medicamentos = []
+        this.historicos = []
     }
 
 
 
     public getEmail(): string {
 
-        return this._email;
+        return this._email
 
     }
     public getDataNascimento(): Date {
@@ -45,15 +61,20 @@ export class Usuario {
 
         if (email.includes("@")) {
 
-            this._email = email;
+            this._email = email
 
         }
 
     }
+    public getMedicamentos(): Medicamento[] {
+
+    return this.medicamentos
+
+}
 
     public setTelefone(telefone: string): void {
 
-        this._telefone = telefone;
+        this._telefone = telefone
 
     }
 
@@ -63,20 +84,20 @@ export class Usuario {
 
         if (this._email === email && this._senha === senha) {
 
-            console.log(`Bem-vindo(a), ${this.nome}!`);
+            console.log(`Bem-vindo(a), ${this.nome}!`)
 
-            return true;
+            return true
         }
         else {
-            console.log("Email ou senha inválidos.");
+            console.log("Email ou senha inválidos.")
 
-            return false;
+            return false
         }
     }
 
     public logout(): void {
 
-        console.log(`${this.nome} saiu do sistema.`);
+        console.log(`${this.nome} saiu do sistema.`)
 
     }
 
@@ -88,27 +109,93 @@ export class Usuario {
     Email: ${this._email}
     Telefone: ${this._telefone}
     Sexo: ${this.sexo}
-    `;
+    `
 
     }
 
     // editarPerfil()
 
+    public adicionarMedicamento(medicamento: Medicamento): void {
+
+        this.medicamentos.push(medicamento)
+
+        console.log(
+            `${medicamento.nome} foi adicionado com sucesso.`
+        )
+
+    }
+    public removerMedicamento(idMedicamento: number): void {
+
+        this.medicamentos = this.medicamentos.filter(
+            medicamento => medicamento.getId() !== idMedicamento
+        )
+
+    }
+    public buscarMedicamento(idMedicamento: number): Medicamento | undefined {
+
+        return this.medicamentos.find(
+            medicamento => medicamento.getId() === idMedicamento
+        )
+
+    }
+
+    public listarMedicamentos(): void {
+
+        if (this.medicamentos.length === 0) {
+
+            console.log("Nenhum medicamento cadastrado.")
+
+            return
+
+        }
+
+        this.medicamentos.forEach((medicamento) => {
+
+            medicamento.mostrarInformacoes()
+
+        })
+
+    }
+
+    public adicionarHistorico(historico: Historico): void {
+
+        this.historicos.push(historico)
+
+    }
+public listarHistorico(): void {
+
+    if (this.historicos.length === 0) {
+
+        console.log("Nenhum histórico encontrado.")
+
+        return
+
+    }
+
+    console.log("===== HISTÓRICO =====")
+
+    this.historicos.forEach((historico) => {
+
+        historico.mostrarInformacoes()
+
+    })
 
 }
-let usuario = new Usuario(
-    1,
-    "Giovana",
-    "gio@email.com",
-    "123456",
-    "Alves",
-    new Date("2004-06-29"),
-    "Feminino",
-    "99999 - 9999",
-    ["love"]
 
-);
+}
+// let usuario = new Usuario(
+//     1,
+//     "Giovana",
+//     "gio@email.com",
+//     "123456",
+//     "Alves",
+//     new Date("2004-06-29"),
+//     "Feminino",
+//     "99999 - 9999",
+//     ["love"]
 
-usuario.login("gio@email.com", "123456");
-usuario.logout();
-console.log(usuario.mostrarInformacoes());
+// )
+
+// usuario.login("gio@email.com", "123456")
+// usuario.logout()
+// console.log(usuario.mostrarInformacoes())
