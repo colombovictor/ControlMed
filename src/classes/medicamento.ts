@@ -1,26 +1,31 @@
 export class Medicamento {
-    private _id: number;
-    public nome: string;
-    public dosagem: string;
-    public estoque: number;
-    public validade: Date;
-    public horarios: string[];
-    public tomadoHoje: boolean;
+    private _idMedicamento: number
+    public nome: string
+    public dosagem: string
+    public estoque: number
+    public validade: Date
+    public horarios: string[]
+    public tomadoHoje: boolean
 
-    constructor(_id: number, nome: string, dosagem: string, estoque: number, validade: Date, horarios: string[]) {
+    constructor(idMedicamento: number, 
+        nome: string, 
+        dosagem: string, 
+        estoque: number, 
+        validade: Date, 
+        horarios: string[]) {
 
-        this._id = _id;
-        this.nome = nome;
-        this.dosagem = dosagem;
-        this.estoque = estoque;
-        this.validade = validade;
-        this.horarios = horarios;
-        this.tomadoHoje = false;
+        this._idMedicamento = idMedicamento
+        this.nome = nome
+        this.dosagem = dosagem
+        this.estoque = estoque
+        this.validade = validade
+        this.horarios = horarios
+        this.tomadoHoje = false
 
     }
     public getId(): number {
 
-        return this._id;
+        return this._idMedicamento
 
     }
     public getValidade(): Date {
@@ -32,7 +37,7 @@ export class Medicamento {
     }
     public getEstoque(): number {
 
-        return this.estoque;
+        return this.estoque
 
     }
 
@@ -43,64 +48,62 @@ export class Medicamento {
 
     public estaVencido(): boolean {
 
-        let hoje = new Date();
+        let hoje = new Date()
 
-        return this.validade < hoje;
+        return this.validade < hoje
+
+    }
+
+    public tomar(): boolean {
+
+    if (this.estaVencido()) {
+
+        console.log("Medicamento vencido.");
+        return false;
 
     }
 
-    public tomar(): void {
+    if (this.estoque <= 0) {
 
-        if (this.estaVencido()) {
-
-            console.log("Medicamento vencido.");
-
-            return;
-
-        }
-
-        if (this.estoque <= 0) {
-
-            console.log("Medicamento sem estoque.");
-
-            return;
-
-        }
-
-        else if (this.tomadoHoje) {
-
-            console.log("Medicamento já foi tomado hoje.");
-
-            return;
-
-        }
-
-        this.tomadoHoje = true;
-
-        this.estoque--;
-
-        console.log(`${this.nome} tomado com sucesso.`);
+        console.log("Medicamento sem estoque.");
+        return false;
 
     }
+
+    if (this.tomadoHoje) {
+
+        console.log("Medicamento já foi tomado hoje.");
+        return false;
+
+    }
+
+    this.tomadoHoje = true;
+    this.estoque--;
+
+    console.log(`${this.nome} tomado com sucesso.`);
+
+    return true;
+
+}
 
     public estoqueBaixo(): boolean {
 
-        return this.estoque <= 5;
+        return this.estoque <= 5
 
     }
     public alterarEstoque(novoEstoque: number): void {
         if (novoEstoque < 0) {
-            throw new Error("O estoque não pode ser negativo.");
+            throw new Error("O estoque não pode ser negativo.")
         }
 
-        this.estoque = novoEstoque;
+        this.estoque = novoEstoque
     }
 
     public editar(nome: string, dosagem: string, horarios: string[],validade:Date): void {
 
-        this.nome = nome;
-        this.dosagem = dosagem;
-        this.horarios = horarios;
+        this.nome = nome
+        this.dosagem = dosagem
+        this.horarios = horarios
         this.validade = validade
 
     }
@@ -108,7 +111,7 @@ export class Medicamento {
 
     public resetarDia(): void {
 
-        this.tomadoHoje = false;
+        this.tomadoHoje = false
 
     }
 
@@ -119,13 +122,13 @@ export class Medicamento {
     Estoque: ${this.estoque}
     Validade: ${this.validade.toLocaleDateString()}
     Horários: ${this.horarios.join(", ")}
-    `;
+    `
     }
 
 }
 // let medicamento = new Medicamento(1, 'Dorflex', '1g', 10, new Date('09-12-2027'), ['10:30', '22:30'])
-// console.log(medicamento.mostrarInformacoes());
-// console.log(medicamento.estaVencido());
-// medicamento.tomar();
+// console.log(medicamento.mostrarInformacoes())
+// console.log(medicamento.estaVencido())
+// medicamento.tomar()
 
 

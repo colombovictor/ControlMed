@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,9 +15,82 @@
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <div class="topo">
+        <div class="topo">
+            <h1>Cadastro de Usuário</h1>
+            <p>Preencha os dados abaixo</p>
+        </div>
+
+        <form class="formulario">
+            <div class="campo">
+                <label>Tipo de Perfil</label>
+                <select id="cadTipo">
+                    <option value="paciente">Paciente</option>
+                    <option value="familiar">Familiar</option>
+                </select>
+            </div>
+            <div class="botao">
+
+                <div class="campo">
+                    <label>Nome</label>
+                    <input type="text" placeholder="Digite o nome">
+                </div>
+
+
+                <div class="campo">
+                    <label>Sobrenome</label>
+                    <input type="text" placeholder="Digite o sobrenome">
+                </div>
+
+                <div class="campo">
+                    <label>Email</label>
+                    <input type="email" placeholder="Digite o email">
+                </div>
+
+                <div class="campo">
+                    <label>Senha</label>
+                    <input type="password" placeholder="Digite a senha">
+                </div>
+
+                <div class="campo">
+                    <label>Telefone</label>
+                    <input type="number" placeholder="Digite o telefone">
+                </div>
+
+                <div class="campo">
+                    <label>Data de Nascimento</label>
+                    <input type="date">
+                </div>
+
+                <div class="campo">
+                    <label>Sexo</label>
+                    <select>
+                        <option>Selecione</option>
+                        <option>Masculino</option>
+                        <option>Feminino</option>
+                        <option>Outro</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label>Email do Familiar (opcional)</label>
+                    <input type="email" id="cadEmailFamiliar">
+                </div>
+                <div class="campo full">
+                    <label>Doenças</label>
+                    <textarea placeholder="Digite as doenças do usuário"></textarea>
+                </div>
+
+                <div class="botao">
+                    <a href="home.html" class="btn-login"> Entrar </a>
+
+                </div>
+
+        </form>
+
+<<<<<<< HEAD
+    <div class="topo">git 
         <h1>Cadastro de Usuário</h1>
         <p>Preencha os dados abaixo para criar sua conta</p>
     </div>
@@ -118,4 +192,10 @@
 </div>
 
 </body>
+=======
+    </div>
+
+</body>
+
+>>>>>>> 4ab93401a09e05366d7026b01c58202a6f092666
 </html>
