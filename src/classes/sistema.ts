@@ -47,6 +47,13 @@ export class Sistema {
         );
 
     }
+    public buscarUsuarioPorEmail(email: string): Usuario | undefined {
+
+    return this.usuarios.find(usuario =>
+        usuario.getEmail().toLowerCase() === email.toLowerCase()
+    );
+
+}
 
     public listarUsuarios(): void {
 
