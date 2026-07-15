@@ -1,6 +1,4 @@
-<!-- login.html -->
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
@@ -15,7 +13,7 @@
       type="image/x-icon"
     />
 
-    <!-- ICONES -->
+    <!-- ICONES (Font Awesome 6) -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -29,47 +27,49 @@
       <div class="login-box">
         <div class="login-topo">
           <h2>Bem-vindo 👋</h2>
-
-          <p>Faça login para continuar</p>
+          <p>Faça login para continuar no sistema</p>
         </div>
 
         <form class="formulario">
+          <!-- Campo Email -->
           <div class="campo">
             <label>Email</label>
-
             <div class="input-icon">
               <i class="fa-regular fa-envelope"></i>
-
-              <input type="email" placeholder="Digite seu email" />
+              <input type="email" placeholder="Digite seu email" required />
             </div>
           </div>
 
+          <!-- Campo Senha -->
           <div class="campo">
             <label>Senha</label>
-
             <div class="input-icon">
               <i class="fa-solid fa-lock"></i>
-
-              <input type="password" placeholder="Digite sua senha" />
+              <input type="password" placeholder="Digite sua senha" required />
             </div>
           </div>
 
+          <!-- Opções extras (Lembrar / Esqueci senha) -->
           <div class="login-options">
             <label class="remember">
               <input type="checkbox" />
-
-              <span>Lembrar senha</span>
+              <span>Lembrar de mim</span>
             </label>
 
-            <a href="esqueceuSenha.html"> Esqueceu a senha? </a>
+            <a href="esqueceu-senha.html">Esqueceu a senha?</a>
           </div>
-          <a href="home.html" class="btn-login"> Entrar </a>
+
+          <!-- Botão Entrar -->
+          <a href="home.html" class="btn-login">
+            <i class="fa-solid fa-right-to-bracket" style="margin-right: 8px;"></i> Entrar
+          </a>
         </form>
 
+        <!-- Link para Cadastro -->
         <div class="cadastro-link">
           <p>
             Não possui conta?
-            <a href="cadastroDeUsuario.html"> Criar conta </a>
+            <a href="cadastroDeUsuario.html">Criar conta</a>
           </p>
         </div>
       </div>

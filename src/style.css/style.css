@@ -5,35 +5,40 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f5f5f5;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    background: 
+        radial-gradient(circle at top right, rgba(91, 52, 242, 0.05), transparent 45%),
+        radial-gradient(circle at bottom left, rgba(244, 63, 94, 0.05), transparent 45%),
+        #f8fafc;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    color: #1e293b;
 }
 
 /* ==========================================
-   2. CONTAINERS RESPONSIVOS (WEB & MOBILE)
+   2. CONTAINERS RESPONSIVOS (CADASTRO/LOGIN)
    ========================================== */
 .container,
 .login-container,
 .forgot-container {
     width: 100%;
-    /* No celular ele fica compacto, no desktop ele se expande elegantemente */
     max-width: 750px; 
     background: white;
     padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    transition: max-width 0.3s ease;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02);
+    border: 1px solid rgba(15, 23, 42, 0.05);
+    transition: max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Limitador específico para telas menores de login/recuperar se você preferir */
 .forgot-container {
     max-width: 450px;
 }
@@ -51,17 +56,18 @@ body {
 .login-topo h2,
 .forgot-topo h1 {
     font-size: 28px;
-    color: #222;
+    color: #0f172a;
     margin-bottom: 8px;
-    font-weight: 700;
+    font-weight: 800;
+    letter-spacing: -0.02em;
 }
 
 .topo p,
 .login-topo p,
 .forgot-topo p {
-    color: #666;
+    color: #64748b;
     font-size: 14px;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 /* ==========================================
@@ -69,7 +75,7 @@ body {
    ========================================== */
 .formulario {
     display: grid;
-    grid-template-columns: 1fr; /* Padrão Mobile: Tudo em 1 coluna */
+    grid-template-columns: 1fr;
     gap: 20px;
 }
 
@@ -80,9 +86,11 @@ body {
 
 .campo label {
     margin-bottom: 8px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #333;
+    font-size: 13px;
+    font-weight: 700;
+    color: #334155;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .campo input,
@@ -90,16 +98,18 @@ body {
 .campo textarea {
     width: 100%;
     height: 50px;
-    border: 1px solid #ddd;
+    border: 1px solid #cbd5e1;
     border-radius: 12px;
     padding: 12px 16px;
     outline: none;
     font-size: 15px;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    color: #0f172a;
+    background-color: #ffffff;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .campo textarea {
-    height: 100px;
+    height: 110px;
     resize: none;
 }
 
@@ -107,7 +117,14 @@ body {
 .campo select:focus,
 .campo textarea:focus {
     border-color: #5b34f2;
-    box-shadow: 0 0 0 3px rgba(91, 52, 242, 0.1);
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(91, 52, 242, 0.12);
+}
+
+/* Autofill do Navegador com Cor Bonita */
+.campo input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #f0fdf4 inset !important;
+    -webkit-text-fill-color: #0f172a !important;
 }
 
 /* Centralização do Ícone nos Inputs */
@@ -117,21 +134,21 @@ body {
 
 .input-icon i {
     position: absolute;
-    left: 15px;
+    left: 16px;
     top: 50%;
     transform: translateY(-50%);
-    color: #777;
+    color: #94a3b8;
     pointer-events: none;
+    font-size: 16px;
 }
 
 .input-icon input {
-    padding-left: 45px;
+    padding-left: 48px;
 }
 
 /* ==========================================
    5. BOTÕES E COMPONENTES DE AÇÃO
    ========================================== */
-/* Força botões e links finais a ocuparem a largura total da linha no Desktop */
 .formulario button,
 .btn-login,
 .btn-recuperar,
@@ -139,7 +156,7 @@ body {
 .cadastro-link,
 .voltar-login,
 .campo-completo {
-    grid-column: span 1; /* Mobile */
+    grid-column: span 1;
 }
 
 button,
@@ -152,25 +169,39 @@ button,
     background: #5b34f2;
     color: white;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 700;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    transition: background 0.2s;
+    box-shadow: 0 4px 12px rgba(91, 52, 242, 0.2);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 button:hover,
 .btn-login:hover,
 .btn-recuperar:hover {
     background: #4725cf;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(91, 52, 242, 0.3);
+}
+
+button:active,
+.btn-login:active,
+.btn-recuperar:active {
+    transform: translateY(1px);
 }
 
 a {
     color: #5b34f2;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 700;
+    transition: color 0.15s ease;
+}
+
+a:hover {
+    color: #4725cf;
 }
 
 .login-options {
@@ -185,86 +216,28 @@ a {
     align-items: center;
     gap: 8px;
     font-size: 14px;
-    color: #666;
+    color: #64748b;
+    cursor: pointer;
+}
+
+.remember input[type="checkbox"] {
+    accent-color: #5b34f2;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
 }
 
 .cadastro-link,
 .voltar-login {
     text-align: center;
     margin-top: 10px;
+    font-size: 14px;
+    color: #64748b;
 }
 
 /* ==========================================
-   6. COMPORTAMENTO EM TELAS MAIORES (WEB/DESKTOP)
+   6. CONTAINER DA HOME
    ========================================== */
-@media (min-width: 768px) {
-    .formulario {
-        /* Divide o formulário em duas colunas perfeitas no PC */
-        grid-template-columns: 1fr 1fr; 
-    }
-
-    /* Elementos que devem continuar ocupando a linha inteira (mesmo no desktop) */
-    .formulario button,
-    .btn-login,
-    .btn-recuperar,
-    .login-options,
-    .cadastro-link,
-    .voltar-login,
-    .campo-completo {
-        grid-column: span 2; 
-    }
-}
-
-/* ==========================================
-   7. COMPORTAMENTO EM TELAS PEQUENAS (MOBILE)
-   ========================================== */
-@media (max-width: 500px) {
-    body {
-        padding: 10px;
-    }
-
-    .container,
-    .login-container,
-    .forgot-container {
-        padding: 25px 20px;
-    }
-
-    .topo h1,
-    .login-topo h2,
-    .forgot-topo h1 {
-        font-size: 24px;
-    }
-
-    .login-options {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-    }
-}
-/* ==========================================
-   1. RESET E FUNDO ILUMINADO (DYNAMICS)
-   ========================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', Arial, Helvetica, sans-serif;
-    /* Fundo dinâmico com duas luzes suaves de gradiente nos cantos */
-    background: 
-        radial-gradient(circle at top right, rgba(91, 52, 242, 0.06), transparent 45%),
-        radial-gradient(circle at bottom left, rgba(244, 63, 94, 0.06), transparent 45%),
-        #f8fafc;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-/* Container Principal */
 .home-container {
     width: 100%;
     max-width: 1150px;
@@ -275,28 +248,29 @@ body {
 }
 
 /* ==========================================
-   2. TOPBAR (VIBRANTE & MODERNA)
+   7. TOPBAR (VIBRANTE & MODERNA)
    ========================================== */
 .topbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(10px); /* Efeito vidro */
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     padding: 20px 30px;
     border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03);
 }
 
-/* Título em Degradê */
 .topbar-info h1 {
     font-size: 26px;
     font-weight: 800;
-    background: linear-gradient(135deg, #1e1b4b 0%, #5b34f2 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #5b34f2 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 4px;
+    letter-spacing: -0.02em;
 }
 
 .topbar-info p {
@@ -305,7 +279,6 @@ body {
     font-weight: 500;
 }
 
-/* Botão de Perfil com Pulso de Atividade */
 .perfil-btn {
     width: 48px;
     height: 48px;
@@ -315,16 +288,16 @@ body {
     cursor: pointer;
     position: relative;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 12px rgba(91, 52, 242, 0.15);
+    box-shadow: 0 4px 12px rgba(91, 52, 242, 0.1);
 }
 
 .perfil-btn:hover {
     transform: scale(1.08) rotate(5deg);
-    box-shadow: 0 6px 20px rgba(91, 52, 242, 0.3);
+    box-shadow: 0 6px 20px rgba(91, 52, 242, 0.25);
 }
 
 /* ==========================================
-   3. GRID PRINCIPAL DO CONTEÚDO
+   8. GRID PRINCIPAL DO CONTEÚDO
    ========================================== */
 .home-content {
     display: grid;
@@ -339,7 +312,7 @@ body {
 }
 
 /* ==========================================
-   4. CARDS COM CORES TEMÁTICAS E GLOW EFFECT
+   9. CARDS COM CORES TEMÁTICAS E GLOW EFFECT
    ========================================== */
 .cards {
     display: grid;
@@ -356,12 +329,11 @@ body {
     color: inherit;
     position: relative;
     overflow: hidden;
-    border: 1px solid rgba(0, 0, 0, 0.03);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(15, 23, 42, 0.04);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.02);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Efeito de brilho de fundo no Card ao passar o mouse */
 .card::before {
     content: '';
     position: absolute;
@@ -381,7 +353,6 @@ body {
     border-color: var(--card-color, #5b34f2);
 }
 
-/* Ícones customizados por Card */
 .card-icon {
     display: inline-flex;
     align-items: center;
@@ -389,11 +360,11 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 16px;
-    background: var(--card-bg, rgba(91, 52, 242, 0.1));
+    background: var(--card-bg, rgba(91, 52, 242, 0.08));
     color: var(--card-color, #5b34f2);
     margin-bottom: 20px;
     font-size: 22px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover .card-icon {
@@ -403,7 +374,7 @@ body {
 .card h2 {
     font-size: 18px;
     font-weight: 700;
-    color: #1e1b4b;
+    color: #0f172a;
     margin-bottom: 6px;
 }
 
@@ -413,39 +384,39 @@ body {
     font-weight: 500;
 }
 
-/* --- ADICIONE ESTAS CLASSES NO SEU HTML PARA CADA CARD --- */
+/* Classes de Cores Dinâmicas dos Cards */
 .card.azul {
     --card-color: #3b82f6;
     --card-color-light: rgba(59, 130, 246, 0.08);
-    --card-bg: rgba(59, 130, 246, 0.1);
+    --card-bg: rgba(59, 130, 246, 0.08);
     --card-glow: rgba(59, 130, 246, 0.15);
 }
 .card.verde {
     --card-color: #10b981;
     --card-color-light: rgba(16, 185, 129, 0.08);
-    --card-bg: rgba(16, 185, 129, 0.1);
+    --card-bg: rgba(16, 185, 129, 0.08);
     --card-glow: rgba(16, 185, 129, 0.15);
 }
 .card.roxo {
     --card-color: #8b5cf6;
     --card-color-light: rgba(139, 92, 246, 0.08);
-    --card-bg: rgba(139, 92, 246, 0.1);
+    --card-bg: rgba(139, 92, 246, 0.08);
     --card-glow: rgba(139, 92, 246, 0.15);
 }
 .card.laranja {
     --card-color: #f97316;
     --card-color-light: rgba(249, 115, 22, 0.08);
-    --card-bg: rgba(249, 115, 22, 0.1);
+    --card-bg: rgba(249, 115, 22, 0.08);
     --card-glow: rgba(249, 115, 22, 0.15);
 }
 
 /* ==========================================
-   5. SEÇÃO DE ATIVIDADES (ESTILO TIMELINE)
+   10. SEÇÃO DE ATIVIDADES (ESTILO TIMELINE)
    ========================================== */
 .atividade h2 {
     font-size: 20px;
     font-weight: 800;
-    color: #1e1b4b;
+    color: #0f172a;
     margin-bottom: 15px;
     display: flex;
     align-items: center;
@@ -456,14 +427,13 @@ body {
     background: white;
     padding: 30px;
     border-radius: 24px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
-    border: 1px solid rgba(0, 0, 0, 0.01);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
+    border: 1px solid rgba(15, 23, 42, 0.04);
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-/* Itens da timeline */
 .atividade-item {
     display: flex;
     align-items: flex-start;
@@ -472,7 +442,6 @@ body {
     padding-bottom: 20px;
 }
 
-/* Linha conectora vertical entre as atividades */
 .atividade-item::after {
     content: '';
     position: absolute;
@@ -490,23 +459,35 @@ body {
     display: none;
 }
 
-/* Indicador de Status com Efeito de Pulso (Blinking) */
 .atividade-status {
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background: #5b34f2;
+    background: #64748b;
     border: 3px solid white;
-    box-shadow: 0 0 0 3px rgba(91, 52, 242, 0.15);
+    box-shadow: 0 0 0 3px rgba(100, 116, 139, 0.15);
     flex-shrink: 0;
     position: relative;
     z-index: 2;
 }
 
-/* Atividade Ativa / Recente tem uma animação piscante */
+/* Animação Pulso Dinâmico para a Atividade Recente/Ativa */
 .atividade-item.recente .atividade-status {
     background: #10b981;
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+    animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
 }
 
 .atividade-detalhes {
@@ -519,7 +500,7 @@ body {
     font-size: 14px;
     color: #334155;
     font-weight: 600;
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 .atividade-detalhes span {
@@ -529,9 +510,51 @@ body {
 }
 
 /* ==========================================
-   6. RESPONSIVIDADE MOBILE
+   11. COMPORTAMENTO EM TELAS MAIORES (WEB/DESKTOP)
+   ========================================== */
+@media (min-width: 768px) {
+    .formulario {
+        grid-template-columns: 1fr 1fr; 
+    }
+
+    .formulario button,
+    .btn-login,
+    .btn-recuperar,
+    .login-options,
+    .cadastro-link,
+    .voltar-login,
+    .campo-completo {
+        grid-column: span 2; 
+    }
+}
+
+/* ==========================================
+   12. COMPORTAMENTO EM TELAS PEQUENAS (MOBILE)
    ========================================== */
 @media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .container,
+    .login-container,
+    .forgot-container {
+        padding: 25px 20px;
+        border-radius: 20px;
+    }
+
+    .topo h1,
+    .login-topo h2,
+    .forgot-topo h1 {
+        font-size: 24px;
+    }
+
+    .login-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
     .home-container {
         padding: 10px;
     }
@@ -546,7 +569,7 @@ body {
     }
 
     .cards {
-        grid-template-columns: 1fr 1fr; /* Preserva 2 colunas lindas no mobile */
+        grid-template-columns: 1fr 1fr;
         gap: 14px;
     }
 
@@ -565,3 +588,31 @@ body {
     }
 }
 
+/* ==========================================
+   AJUSTE DE ALINHAMENTO PARA INPUT COM ÍCONE
+   ========================================== */
+.input-icon {
+    position: relative;
+    display: flex;
+    align-items: center; /* Centraliza o input verticalmente no container */
+    width: 100%;
+}
+
+.input-icon i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%); /* Força o alinhamento vertical exato no centro */
+    color: #94a3b8;
+    pointer-events: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-icon input,
+.input-icon select {
+    padding-left: 48px; /* Dá o espaço necessário para o texto não bater no ícone */
+    width: 100%;
+}

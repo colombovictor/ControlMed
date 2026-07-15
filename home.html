@@ -1,131 +1,113 @@
-<!-- home.html -->
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-    content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | ControlMed</title>
-
-    <link rel="stylesheet"
-    href="src/style.css/style.css">
+    <link rel="stylesheet" href="src/style.css/style.css">
     <link rel="shortcut icon" href="src/img/prescricao-medica.png" type="image/x-icon">
 
-    <!-- ICONES -->
-
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+    <!-- ICONES (Font Awesome 6) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-
 <body>
 
     <div class="home-container">
 
         <!-- TOPO -->
-
         <header class="topbar">
-
-            <div>
-
+            <div class="topbar-info">
                 <h1>ControlMed 💊</h1>
-
-                <p>
-                    Bem-vindo ao sistema
-                </p>
-
+                <p>Bem-vindo ao sistema de gestão médica</p>
             </div>
-
             <button class="perfil-btn">
-
-                <i class="fa-solid fa-user"></i>
-
+                <i class="fa-solid fa-circle-user" style="font-size: 20px; color: #5b34f2;"></i>
             </button>
-
         </header>
 
-        <!-- CARDS -->
+        <!-- GRID DE CONTEÚDO PRINCIPAL (WEB: LADO A LADO | MOBILE: EMPILHADO) -->
+        <div class="home-content">
+            
+            <!-- SEÇÃO DE CARDS -->
+            <section class="cards">
 
-        <section class="cards">
+                <!-- Card Medicamentos (Roxo) -->
+                <div class="card roxo">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-capsules"></i>
+                    </div>
+                    <h2>Medicamentos</h2>
+                    <p>Gerencie as prescrições</p>
+                </div>
 
-            <div class="card">
+                <!-- Card Estoque (Azul) -->
+                <div class="card azul">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-boxes-stacked"></i>
+                    </div>
+                    <h2>Estoque</h2>
+                    <p>Controle de entradas/saídas</p>
+                </div>
 
-                <i class="fa-solid fa-pills"></i>
+                <!-- Card Horários (Laranja) -->
+                <div class="card laranja">
+                    <div class="card-icon">
+                        <i class="fa-regular fa-calendar-check"></i>
+                    </div>
+                    <h2>Horários</h2>
+                    <p>Organize os agendamentos</p>
+                </div>
 
-                <h2>Medicamentos</h2>
+                <!-- Card Pacientes (Verde) -->
+                <div class="card verde">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-hospital-user"></i>
+                    </div>
+                    <h2>Pacientes</h2>
+                    <p>Histórico e dados cadastrais</p>
+                </div>
 
-                <p>
-                    Gerencie seus medicamentos
-                </p>
+            </section>
 
-            </div>
+            <!-- SEÇÃO DE ATIVIDADES (ESTILO TIMELINE) -->
+            <section class="atividade">
+                <h2>Últimas Atividades</h2>
+                
+                <div class="atividade-box">
+                    
+                    <!-- Atividade 1 (Ativa/Pulsando) -->
+                    <div class="atividade-item recente">
+                        <div class="atividade-status"></div>
+                        <div class="atividade-detalhes">
+                            <p>Novo medicamento cadastrado no sistema</p>
+                            <span>Agora mesmo</span>
+                        </div>
+                    </div>
 
-            <div class="card">
+                    <!-- Atividade 2 -->
+                    <div class="atividade-item">
+                        <div class="atividade-status"></div>
+                        <div class="atividade-detalhes">
+                            <p>Estoque de Insulina atualizado</p>
+                            <span>Há 15 minutos</span>
+                        </div>
+                    </div>
 
-                <i class="fa-solid fa-box"></i>
+                    <!-- Atividade 3 -->
+                    <div class="atividade-item">
+                        <div class="atividade-status"></div>
+                        <div class="atividade-detalhes">
+                            <p>Novo paciente adicionado à fila</p>
+                            <span>Há 2 horas</span>
+                        </div>
+                    </div>
 
-                <h2>Estoque</h2>
+                </div>
+            </section>
 
-                <p>
-                    Controle o estoque
-                </p>
+        </div> <!-- Fim .home-content -->
 
-            </div>
-
-            <div class="card">
-
-                <i class="fa-solid fa-clock"></i>
-
-                <h2>Horários</h2>
-
-                <p>
-                    Organize os horários
-                </p>
-
-            </div>
-
-            <div class="card">
-
-                <i class="fa-solid fa-users"></i>
-
-                <h2>Pacientes</h2>
-
-                <p>
-                    Gerencie os pacientes
-                </p>
-
-            </div>
-
-        </section>
-
-        <!-- ATIVIDADES -->
-
-        <section class="atividade">
-
-            <h2>Últimas Atividades</h2>
-
-            <div class="atividade-box">
-
-                <p>
-                    ✔ Medicamento cadastrado
-                </p>
-
-                <p>
-                    ✔ Estoque atualizado
-                </p>
-
-                <p>
-                    ✔ Novo paciente adicionado
-                </p>
-
-            </div>
-
-        </section>
-
-    </div>
+    </div> <!-- Fim .home-container -->
 
 </body>
 </html>
