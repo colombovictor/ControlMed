@@ -1,4 +1,4 @@
-import { Medicamento } from "./medicamento";
+import { Medicamento } from "./medicamento.js";
 
 export class Historico {
 

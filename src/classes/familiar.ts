@@ -1,4 +1,4 @@
-import { Usuario } from "./user"
+import { Usuario } from "./user.js"
 
 export class Familiar extends Usuario {
 

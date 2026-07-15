@@ -97,17 +97,7 @@ const novoUsuario = new Construtor(
         // CONTINUA O CÓDIGO
         // ------------------------------
 
-        sistema.adicionarUsuario(novoUsuario);
-
-        sistema.salvar();
-
-        alert("Cadastro realizado com sucesso!");
-
-        window.location.href = "telaDeLogin.html";
-
-
-
-
+        
         sistema.adicionarUsuario(novoUsuario);
         sistema.salvar();
 
