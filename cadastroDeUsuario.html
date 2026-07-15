@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastro de Usuário | ControlMed</title>
+
+<link rel="stylesheet" href="src/style.css/style.css">
+<link rel="shortcut icon" href="src/img/prescricao-medica.png" type="image/x-icon">
+
+<!-- ICONES (Font Awesome 6) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Usuário | ControlMed</title>
-
-    <link rel="stylesheet" href="src/style.css/style.css">
-    <link rel="shortcut icon" href="src/img/prescricao-medica.png" type="image/x-icon">
-
-    <!-- ICONES (Font Awesome 6) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
 
 <body>
-
     <div class="container">
 
         <div class="topo">
@@ -22,8 +23,9 @@
             <p>Preencha os dados abaixo</p>
         </div>
 
-        <form class="formulario">
+        <form id="formCadastro" class="formulario">
             <div class="campo">
+
                 <label>Tipo de Perfil</label>
                 <select id="cadTipo">
                     <option value="paciente">Paciente</option>
@@ -34,38 +36,37 @@
 
                 <div class="campo">
                     <label>Nome</label>
-                    <input type="text" placeholder="Digite o nome">
+                    <input type="text" id="cadNome" placeholder="Digite o nome">
                 </div>
-
 
                 <div class="campo">
                     <label>Sobrenome</label>
-                    <input type="text" placeholder="Digite o sobrenome">
+                    <input type="text" id="cadSobrenome" placeholder="Digite o sobrenome">
                 </div>
 
                 <div class="campo">
                     <label>Email</label>
-                    <input type="email" placeholder="Digite o email">
+                    <input type="email" id="cadEmail" placeholder="Digite o email">
                 </div>
 
                 <div class="campo">
                     <label>Senha</label>
-                    <input type="password" placeholder="Digite a senha">
+                    <input type="password" id="cadSenha" placeholder="Digite a senha">
                 </div>
 
                 <div class="campo">
                     <label>Telefone</label>
-                    <input type="number" placeholder="Digite o telefone">
+                    <input type="text" id="cadTelefone" placeholder="Digite o telefone">
                 </div>
 
                 <div class="campo">
                     <label>Data de Nascimento</label>
-                    <input type="date">
+                    <input type="date" id="cadDataNascimento">
                 </div>
 
                 <div class="campo">
                     <label>Sexo</label>
-                    <select>
+                    <select id="cadSexo">
                         <option>Selecione</option>
                         <option>Masculino</option>
                         <option>Feminino</option>
@@ -75,11 +76,11 @@
 
                 <div class="campo">
                     <label>Email do Familiar (opcional)</label>
-                    <input type="email" id="cadEmailFamiliar">
+                    <input type="email" id="cadEmailVinculo">
                 </div>
                 <div class="campo full">
                     <label>Doenças</label>
-                    <textarea placeholder="Digite as doenças do usuário"></textarea>
+                    <textarea id="cadDoenca" placeholder="Digite as doenças"></textarea>
                 </div>
 
                 <div class="botao">
@@ -89,113 +90,9 @@
 
         </form>
 
-<<<<<<< HEAD
-    <div class="topo">git 
-        <h1>Cadastro de Usuário</h1>
-        <p>Preencha os dados abaixo para criar sua conta</p>
-    </div>
-
-    <form class="formulario">
-
-        <!-- Nome -->
-        <div class="campo">
-            <label>Nome</label>
-            <div class="input-icon">
-                <i class="fa-solid fa-user"></i>
-                <input type="text" placeholder="Digite o nome" required>
-            </div>
-        </div>
-
-        <!-- Sobrenome -->
-        <div class="campo">
-            <label>Sobrenome</label>
-            <div class="input-icon">
-                <i class="fa-solid fa-address-card"></i>
-                <input type="text" placeholder="Digite o sobrenome" required>
-            </div>
-        </div>
-
-        <!-- Email -->
-        <div class="campo">
-            <label>Email</label>
-            <div class="input-icon">
-                <i class="fa-solid fa-envelope"></i>
-                <input type="email" placeholder="Digite o email" required>
-            </div>
-        </div>
-
-        <!-- Email do Familiar -->
-        <div class="campo">
-            <label>Email do familiar responsável</label>
-            <div class="input-icon">
-                <i class="fa-solid fa-user-shield"></i>
-                <input type="email" placeholder="Digite o email do familiar">
-            </div>
-        </div>
-
-        <!-- Senha -->
-        <div class="campo">
-            <label>Senha</label>
-            <div class="input-icon">
-                <i class="fa-solid fa-lock"></i>
-                <input type="password" placeholder="Digite a senha" required>
-            </div>
-        </div>
-
-        <!-- Telefone -->
-        <div class="campo">
-            <label>Telefone</label>
-            <div class="input-icon">
-                <i class="fa-solid fa-phone"></i>
-                <input type="tel" placeholder="Digite o telefone">
-            </div>
-        </div>
-
-        <!-- Data de Nascimento -->
-        <div class="campo">
-            <label>Data de Nascimento</label>
-            <div class="input-icon">
-                <i class="fa-solid fa-calendar-days"></i>
-                <input type="date" required>
-            </div>
-        </div>
-
-        <!-- Sexo -->
-        <div class="campo">
-            <label>Sexo</label>
-            <div class="input-icon">
-                <i class="fa-solid fa-venus-mars"></i><br>
-                <select required>
-                    <option value="" disabled selected>Selecione</option>
-                    <option value="masculino">Masculino</option>
-                    <option value="feminino">Feminino</option>
-                    <option value="outro">Outro</option>
-                </select>
-            </div>
-        </div>
-
-        <!-- Doenças (Ocupa a linha toda no Desktop) -->
-        <div class="campo campo-completo">
-            <label>Condições Médicas / Doenças</label>
-            <textarea placeholder="Digite as doenças ou observações médicas do usuário"></textarea>
-        </div>
-
-        <!-- Botão de Envio (Ocupa a linha toda no Desktop) -->
-        <div class="botao campo-completo">
-            <a href="home.html" class="btn-login">
-                <i class="fa-solid fa-user-plus" style="margin-right: 8px;"></i> Cadastrar e Entrar
-            </a>
-        </div>
-
-    </form>
-
-</div>
-
-</body>
-=======
     </div>
 
 </body>
 
->>>>>>> 4ab93401a09e05366d7026b01c58202a6f092666
+
 </html>
