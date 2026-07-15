@@ -54,39 +54,37 @@ export class Medicamento {
 
     }
 
-    public tomar(): void {
+    public tomar(): boolean {
 
-        if (this.estaVencido()) {
+    if (this.estaVencido()) {
 
-            console.log("Medicamento vencido.")
-
-            return
-
-        }
-
-        if (this.estoque <= 0) {
-
-            console.log("Medicamento sem estoque.")
-
-            return
-
-        }
-
-        else if (this.tomadoHoje) {
-
-            console.log("Medicamento já foi tomado hoje.")
-
-            return
-
-        }
-
-        this.tomadoHoje = true
-
-        this.estoque--
-
-        console.log(`${this.nome} tomado com sucesso.`)
+        console.log("Medicamento vencido.");
+        return false;
 
     }
+
+    if (this.estoque <= 0) {
+
+        console.log("Medicamento sem estoque.");
+        return false;
+
+    }
+
+    if (this.tomadoHoje) {
+
+        console.log("Medicamento já foi tomado hoje.");
+        return false;
+
+    }
+
+    this.tomadoHoje = true;
+    this.estoque--;
+
+    console.log(`${this.nome} tomado com sucesso.`);
+
+    return true;
+
+}
 
     public estoqueBaixo(): boolean {
 

@@ -1,5 +1,6 @@
 import { Medicamento } from "./medicamento"
 import { Historico } from "./historico"
+import { Familiar } from "./familiar"
 export class Usuario {
     idUsuario: number
     nome: string
@@ -12,6 +13,7 @@ export class Usuario {
     private _doenca: string[]
     private medicamentos: Medicamento[]
     private historicos: Historico[]
+    private familiares: Familiar[];
 
     constructor(
         idUsuario: number,
@@ -22,19 +24,22 @@ export class Usuario {
         dataNascimento: Date,
         sexo: string,
         telefone: string,
-        doenca: string[]
+        doenca: string[],
     ) {
-        this.idUsuario = idUsuario
-        this.nome = nome
-        this._email = email
-        this._senha = senha
-        this.sobrenome = sobrenome
-        this._dataNascimento = dataNascimento
-        this.sexo = sexo
-        this._telefone = telefone
-        this._doenca = doenca
-        this.medicamentos = []
-        this.historicos = []
+        this.idUsuario = idUsuario;
+    this.nome = nome;
+    this.sobrenome = sobrenome;
+    this._email = email;
+    this._senha = senha;
+    this._dataNascimento = dataNascimento;
+    this.sexo = sexo;
+    this._telefone = telefone;
+    this._doenca = doenca;
+
+    this.medicamentos = [];
+    this.historicos = [];
+    this.familiares = []; // Inicializa vazio
+
     }
 
 
@@ -57,6 +62,22 @@ export class Usuario {
 
         return this._telefone
     }
+    public getFamiliar(): Familiar[] {
+
+        return this.familiares;
+
+    }
+    public getMedicamentos(): Medicamento[] {
+
+        return this.medicamentos
+
+    }
+    public getHistoricos(): Historico[] {
+
+        return this.historicos
+
+    }
+
     public setEmail(email: string): void {
 
         if (email.includes("@")) {
@@ -66,12 +87,6 @@ export class Usuario {
         }
 
     }
-    public getMedicamentos(): Medicamento[] {
-
-    return this.medicamentos
-
-}
-
     public setTelefone(telefone: string): void {
 
         this._telefone = telefone
@@ -112,8 +127,76 @@ export class Usuario {
     `
 
     }
+    
+    public tomarMedicamento(idMedicamento: number): void {
 
-    // editarPerfil()
+    // Procura o medicamento pelo ID
+    const medicamento = this.medicamentos.find(
+        medicamento => medicamento.getId() === idMedicamento
+    );
+
+    // Verifica se encontrou
+    if (!medicamento) {
+
+        console.log("Medicamento não encontrado.");
+
+        return;
+
+    }
+
+    // Guarda o estoque antes de tentar tomar
+    const estoqueAntes = medicamento.getEstoque();
+
+    // Tenta tomar o medicamento
+    medicamento.tomar();
+
+    // Se o estoque diminuiu, significa que o medicamento foi tomado
+    if (medicamento.getEstoque() < estoqueAntes) {
+
+        const historico = new Historico(
+            this.historicos.length + 1,
+            medicamento,
+            "Tomado"
+        );
+
+        this.historicos.push(historico);
+
+        console.log("Histórico registrado com sucesso.");
+
+    }
+
+}
+
+
+    // public vincularFamiliar(familiar: Familiar[]): void {
+
+    //     this.familiares = familiar;
+
+    // }
+
+    public adicionarFamiliar(familiar: Familiar): void {
+
+        if (!this.familiares.includes(familiar)) {
+            this.familiares.push(familiar);
+        }
+
+    }
+
+    public removerFamiliar(idUsuario: number): void {
+
+        this.familiares = this.familiares.filter(
+            familiar => familiar.idUsuario !== idUsuario
+        );
+
+    }
+
+    public listarFamiliares(): Familiar[] {
+
+        return this.familiares;
+
+    }
+
+
 
     public adicionarMedicamento(medicamento: Medicamento): void {
 
@@ -162,25 +245,25 @@ export class Usuario {
         this.historicos.push(historico)
 
     }
-public listarHistorico(): void {
+    public listarHistorico(): void {
 
-    if (this.historicos.length === 0) {
+        if (this.historicos.length === 0) {
 
-        console.log("Nenhum histórico encontrado.")
+            console.log("Nenhum histórico encontrado.");
 
-        return
+            return
 
+        }
+
+        console.log(`Histórico de ${this.nome}:`);
+
+        this.historicos.forEach(historico => {
+
+            console.log(historico.mostrarInformacoes())
+
+        })
     }
 
-    console.log("===== HISTÓRICO =====")
-
-    this.historicos.forEach((historico) => {
-
-        historico.mostrarInformacoes()
-
-    })
-
-}
 
 }
 // let usuario = new Usuario(

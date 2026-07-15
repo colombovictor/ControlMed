@@ -30,95 +30,112 @@ export class Familiar extends Usuario {
 
         this.usuariosAcompanhados = []
 
-    }
-    
-public adicionarUsuario(usuario: Usuario): void {
 
-    let existe = this.buscarUsuario(usuario.idUsuario)
-
-    if (existe) {
-        console.log("Esse usuário já está sendo acompanhado.")
-        return
     }
 
-    this.usuariosAcompanhados.push(usuario)
+    public adicionarUsuario(usuario: Usuario): void {
 
-    console.log(`${usuario.nome} adicionado com sucesso.`)
+        let existe = this.buscarUsuario(usuario.idUsuario)
 
-}
+        if (existe) {
+            console.log("Esse usuário já está sendo acompanhado.")
+            return
+        }
 
-public removerUsuario(idUsuario: number): void {
+        this.usuariosAcompanhados.push(usuario)
 
-    const usuario = this.buscarUsuario(idUsuario)
+        console.log(`${usuario.nome} adicionado com sucesso.`)
 
-    if (!usuario) {
-        console.log("Usuário não encontrado.")
-        return
     }
 
-    this.usuariosAcompanhados =
-        this.usuariosAcompanhados.filter(
-            usuario => usuario.idUsuario !== idUsuario
-        )
+    public removerUsuario(idUsuario: number): void {
 
-    console.log("Usuário removido com sucesso.")
+        const usuario = this.buscarUsuario(idUsuario)
 
-}
+        if (!usuario) {
+            console.log("Usuário não encontrado.")
+            return
+        }
 
-public listarUsuarios(): void {
+        this.usuariosAcompanhados =
+            this.usuariosAcompanhados.filter(
+                usuario => usuario.idUsuario !== idUsuario
+            )
 
-    console.log("Usuários acompanhados:")
+        console.log("Usuário removido com sucesso.")
 
-    this.usuariosAcompanhados.forEach(usuario => {
-
-        console.log(
-            `${usuario.idUsuario} - ${usuario.nome} ${usuario.sobrenome}`
-        )
-
-    })
-
-}
-
-public buscarUsuario(idUsuario: number): Usuario | undefined {
-
-    return this.usuariosAcompanhados.find(
-        usuario => usuario.idUsuario === idUsuario
-    )
-
-}
-
-public visualizarMedicamentos(idUsuario: number): void {
-
-    const usuario = this.buscarUsuario(idUsuario)
-
-    if (!usuario) {
-        console.log("Usuário não encontrado.")
-        return
     }
 
-    usuario.listarMedicamentos()
+    public listarUsuarios(): void {
 
-}
-public verificarPendencias(): void {
+        console.log("Usuários acompanhados:")
 
-    this.usuariosAcompanhados.forEach(usuario => {
+        this.usuariosAcompanhados.forEach(usuario => {
 
-        console.log(`Usuário: ${usuario.nome}`);
-
-        usuario.getMedicamentos().forEach(medicamento => {
-
-            if (!medicamento.getTomadoHoje()) {
-
-                console.log(
-                    `${medicamento.nome} ainda não foi tomado.`
-                )
-
-            }
+            console.log(
+                `${usuario.idUsuario} - ${usuario.nome} ${usuario.sobrenome}`
+            )
 
         })
 
-    })
+    }
 
-}
+    public buscarUsuario(idUsuario: number): Usuario | undefined {
+
+        return this.usuariosAcompanhados.find(
+            usuario => usuario.idUsuario === idUsuario
+        )
+
+    }
+
+    public visualizarMedicamentos(idUsuario: number): void {
+
+        const usuario = this.buscarUsuario(idUsuario)
+
+        if (!usuario) {
+            console.log("Usuário não encontrado.")
+            return
+        }
+
+        usuario.listarMedicamentos()
+
+    }
+    public verificarPendencias(): void {
+
+        this.usuariosAcompanhados.forEach(usuario => {
+
+            console.log(`Usuário: ${usuario.nome}`);
+
+            usuario.getMedicamentos().forEach(medicamento => {
+
+                if (!medicamento.getTomadoHoje()) {
+
+                    console.log(
+                        `${medicamento.nome} ainda não foi tomado.`
+                    )
+
+                }
+
+            })
+
+        })
+
+    }
+
+    public visualizarHistorico(idUsuario: number): void {
+
+        const usuario = this.buscarUsuario(idUsuario);
+
+        if (!usuario) {
+
+            console.log("Usuário não encontrado.");
+
+            return;
+
+        }
+
+        usuario.listarHistorico();
+
+    }
 
 }

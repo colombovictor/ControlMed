@@ -80,7 +80,29 @@ export class Sistema {
 
         return usuario;
     }
+public salvar(): void {
 
+    localStorage.setItem(
+        "controlmed",
+        JSON.stringify(this.usuarios)
+    );
+
+}
+public static carregar(): Sistema {
+
+    const sistema = new Sistema();
+
+    const dados = localStorage.getItem("controlmed");
+
+    if (dados) {
+
+        sistema.usuarios = JSON.parse(dados);
+
+    }
+
+    return sistema;
+
+}
   
     // FAMILIARES
   
@@ -141,30 +163,30 @@ export class Sistema {
     }
 
 }
-let sistema = new Sistema()
-const usuario = new Usuario(
-    1,
-    "Maria",
-    "Silva",
-    "maria@email.com",
-    "123456",
-    new Date("1955-03-10"),
-    "Feminino",
-    "(11)99999-9999",
-    ["Hipertensão"]
-);
-sistema.adicionarUsuario(usuario)
+// let sistema = new Sistema()
+// const usuario = new Usuario(
+//     1,
+//     "Maria",
+//     "Silva",
+//     "maria@email.com",
+//     "123456",
+//     new Date("1955-03-10"),
+//     "Feminino",
+//     "(11)99999-9999",
+//     ["Hipertensão"]
+// );
+// sistema.adicionarUsuario(usuario)
 
-const familiar = new Familiar(
-    2,
-    "João",
-    "Silva",
-    "joao@email.com",
-    "654321",
-    new Date("1995-08-20"),
-    "Masculino",
-    "(11)98888-8888",
-    []
-);
+// const familiar = new Familiar(
+//     2,
+//     "João",
+//     "Silva",
+//     "joao@email.com",
+//     "654321",
+//     new Date("1995-08-20"),
+//     "Masculino",
+//     "(11)98888-8888",
+//     []
+// );
 
-sistema.adicionarUsuario(familiar);
+// sistema.adicionarUsuario(familiar);
