@@ -1,23 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cadastro de Usuário | ControlMed</title>
-
-<link rel="stylesheet" href="src/style.css/style.css">
-<link rel="shortcut icon" href="src/img/prescricao-medica.png" type="image/x-icon">
-
-<!-- ICONES (Font Awesome 6) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
-
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>Cadastro de Usuário | ControlMed</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="src/img/prescricao-medica.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
 <body>
     <div class="container">
-
         <div class="topo">
             <h1>Cadastro de Usuário</h1>
             <p>Preencha os dados abaixo</p>
@@ -25,74 +17,73 @@
 
         <form id="formCadastro" class="formulario">
             <div class="campo">
-
                 <label>Tipo de Perfil</label>
                 <select id="cadTipo">
                     <option value="paciente">Paciente</option>
                     <option value="familiar">Familiar</option>
                 </select>
             </div>
+
+            <div class="campo">
+                <label>Nome</label>
+                <input type="text" id="cadNome" placeholder="Digite o nome">
+            </div>
+
+            <div class="campo">
+                <label>Sobrenome</label>
+                <input type="text" id="cadSobrenome" placeholder="Digite o sobrenome">
+            </div>
+
+            <div class="campo">
+                <label>Email</label>
+                <input type="email" id="cadEmail" placeholder="Digite o email">
+            </div>
+
+            <div class="campo">
+                <label>Senha</label>
+                <input type="password" id="cadSenha" placeholder="Digite a senha">
+            </div>
+
+            <div class="campo">
+                <label>Telefone</label>
+                <input type="text" id="cadTelefone" placeholder="Digite o telefone">
+            </div>
+
+            <div class="campo">
+                <label>Data de Nascimento</label>
+                <input type="date" id="cadDataNascimento">
+            </div>
+
+            <div class="campo">
+                <label>Sexo</label>
+                <select id="cadSexo">
+                    <option>Selecione</option>
+                    <option>Masculino</option>
+                    <option>Feminino</option>
+                    <option>Outro</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label>Email do Familiar (opcional)</label>
+                <input type="email" id="cadEmailVinculo">
+            </div>
+
+            <div class="campo full">
+                <label>Doenças</label>
+                <textarea id="cadDoenca" placeholder="Digite as doenças"></textarea>
+            </div>
+
             <div class="botao">
-
-                <div class="campo">
-                    <label>Nome</label>
-                    <input type="text" id="cadNome" placeholder="Digite o nome">
-                </div>
-
-                <div class="campo">
-                    <label>Sobrenome</label>
-                    <input type="text" id="cadSobrenome" placeholder="Digite o sobrenome">
-                </div>
-
-                <div class="campo">
-                    <label>Email</label>
-                    <input type="email" id="cadEmail" placeholder="Digite o email">
-                </div>
-
-                <div class="campo">
-                    <label>Senha</label>
-                    <input type="password" id="cadSenha" placeholder="Digite a senha">
-                </div>
-
-                <div class="campo">
-                    <label>Telefone</label>
-                    <input type="text" id="cadTelefone" placeholder="Digite o telefone">
-                </div>
-
-                <div class="campo">
-                    <label>Data de Nascimento</label>
-                    <input type="date" id="cadDataNascimento">
-                </div>
-
-                <div class="campo">
-                    <label>Sexo</label>
-                    <select id="cadSexo">
-                        <option>Selecione</option>
-                        <option>Masculino</option>
-                        <option>Feminino</option>
-                        <option>Outro</option>
-                    </select>
-                </div>
-
-                <div class="campo">
-                    <label>Email do Familiar (opcional)</label>
-                    <input type="email" id="cadEmailVinculo">
-                </div>
-                <div class="campo full">
-                    <label>Doenças</label>
-                    <textarea id="cadDoenca" placeholder="Digite as doenças"></textarea>
-                </div>
-
-                <div class="botao">
-                    <a href="home.html" class="btn-login"> Entrar </a>
-
-                </div>
-
+                <button type="submit" class="btn-login">Cadastrar</button>
+            </div>
         </form>
 
+        <p style="text-align:center; margin-top: 10px;">
+            Já tem conta? <a href="telaDeLogin.html">Entrar</a>
+        </p>
     </div>
 
+    <script type="module" src="./dist/classes/cadrastro.js"></script>
 </body>
-
-
 </html>

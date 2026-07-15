@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | ControlMed</title>
-    <link rel="stylesheet" href="src/style.css/style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="src/img/prescricao-medica.png" type="image/x-icon">
 
     <!-- ICONES (Font Awesome 6) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
 <body>
 
     <div class="home-container">
@@ -18,7 +20,8 @@
         <header class="topbar">
             <div class="topbar-info">
                 <h1>ControlMed 💊</h1>
-                <p>Bem-vindo ao sistema de gestão médica</p>
+                <p id="txtBoasVindas">
+                    Bem-vindo ao sistema de gestão médica </p>
             </div>
             <button class="perfil-btn">
                 <i class="fa-solid fa-circle-user" style="font-size: 20px; color: #5b34f2;"></i>
@@ -27,17 +30,19 @@
 
         <!-- GRID DE CONTEÚDO PRINCIPAL (WEB: LADO A LADO | MOBILE: EMPILHADO) -->
         <div class="home-content">
-            
+
             <!-- SEÇÃO DE CARDS -->
             <section class="cards">
 
                 <!-- Card Medicamentos (Roxo) -->
                 <div class="card roxo">
                     <div class="card-icon">
+                        <a href="medicamentos.html" style="text-decoration:none; color:inherit;">
                         <i class="fa-solid fa-capsules"></i>
                     </div>
                     <h2>Medicamentos</h2>
-                    <p>Gerencie as prescrições</p>
+                        <p>Gerencie as prescrições</p>
+                    </a>
                 </div>
 
                 <!-- Card Estoque (Azul) -->
@@ -72,9 +77,9 @@
             <!-- SEÇÃO DE ATIVIDADES (ESTILO TIMELINE) -->
             <section class="atividade">
                 <h2>Últimas Atividades</h2>
-                
+
                 <div class="atividade-box">
-                    
+
                     <!-- Atividade 1 (Ativa/Pulsando) -->
                     <div class="atividade-item recente">
                         <div class="atividade-status"></div>
@@ -108,6 +113,7 @@
         </div> <!-- Fim .home-content -->
 
     </div> <!-- Fim .home-container -->
-
+    <script type="module" src="/dist/classes/home.js"></script>
 </body>
+
 </html>
