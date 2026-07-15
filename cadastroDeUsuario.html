@@ -20,7 +20,7 @@
 
         <div class="topo">
             <h1>Cadastro de Usuário</h1>
-            <p>Preencha os dados abaixo</p>
+            <p>Preencha os dados abaixo para criar sua conta</p>
         </div>
 
         <form id="formCadastro" class="formulario">
@@ -73,6 +73,7 @@
                         <option>Outro</option>
                     </select>
                 </div>
+            </div>
 
                 <div class="campo">
                     <label>Email do Familiar (opcional)</label>
@@ -82,17 +83,95 @@
                     <label>Doenças</label>
                     <textarea id="cadDoenca" placeholder="Digite as doenças"></textarea>
                 </div>
+            </div>
 
-                <div class="botao">
-                    <a href="home.html" class="btn-login"> Entrar </a>
-
+            <!-- Sobrenome -->
+            <div class="campo">
+                <label for="sobrenome">Sobrenome</label>
+                <div class="input-icon">
+                    <i class="fa-solid fa-address-card"></i>
+                    <input type="text" id="sobrenome" placeholder="Digite o sobrenome" required>
                 </div>
+            </div>
+
+            <!-- Email -->
+            <div class="campo">
+                <label for="email">Email</label>
+                <div class="input-icon">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="email" placeholder="Digite o email" required>
+                </div>
+            </div>
+
+            <!-- Email Familiar -->
+            <div class="campo">
+                <label for="emailFamiliar">Email do Familiar (opcional)</label>
+                <div class="input-icon">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <input type="email" id="emailFamiliar" placeholder="Digite o email do familiar">
+                </div>
+            </div>
+
+            <!-- Senha -->
+            <div class="campo">
+                <label for="senha">Senha</label>
+                <div class="input-icon">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="senha" placeholder="Digite a senha" required>
+                </div>
+            </div>
+
+            <!-- Telefone -->
+            <div class="campo">
+                <label for="telefone">Telefone</label>
+                <div class="input-icon">
+                    <i class="fa-solid fa-phone"></i>
+                    <input type="tel" id="telefone" placeholder="(79) 99999-9999">
+                </div>
+            </div>
+
+            <!-- Data -->
+            <div class="campo">
+                <label for="nascimento">Data de Nascimento</label>
+                <div class="input-icon">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <input type="date" id="nascimento" required>
+                </div>
+            </div>
+
+            <!-- Sexo -->
+            <div class="campo">
+                <label for="sexo">Sexo</label>
+                <div class="input-icon">
+                    <i class="fa-solid fa-venus-mars"></i>
+                    <select id="sexo" required>
+                        <option value="" selected disabled>Selecione</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="feminino">Feminino</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Doenças -->
+            <div class="campo campo-completo">
+                <label for="doencas">Condições Médicas / Doenças</label>
+                <textarea id="doencas"
+                    placeholder="Digite as doenças ou observações médicas"></textarea>
+            </div>
+
+            <!-- Botão -->
+            <div class="botao campo-completo">
+                <button type="submit" class="btn-login">
+                    <i class="fa-solid fa-user-plus"></i>
+                    Cadastrar e Entrar
+                </button>
+            </div>
 
         </form>
 
     </div>
 
 </body>
-
 
 </html>
