@@ -42,8 +42,8 @@ const Construtor =
     tipo === "familiar"
         ? Familiar
         : Usuario;
-let familiar:
-const novoUsuario = new NovoUsuario(
+
+const novoUsuario = new Construtor(
     id,
     nome,
     sobrenome,
@@ -52,9 +52,7 @@ const novoUsuario = new NovoUsuario(
     dataNascimento ? new Date(dataNascimento) : new Date(),
     sexo,
     telefone,
-    doencas,
-    familiar,
-    usuariosAcompanhados
+    doencas
 );
         const emailVinculo = (
             document.getElementById("cadEmailVinculo") as HTMLInputElement
