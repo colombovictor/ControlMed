@@ -34,7 +34,7 @@ const txtBoasVindas = document.getElementById("txtBoasVindas");
 if (txtBoasVindas) {
 
     txtBoasVindas.textContent =
-        `Bem-vindo(a), ${usuario.nome}! 👋`;
+        `Bem-vindo(a), ${usuario.nome} ${usuario.sobrenome}! 👋`;
 
 }
 
