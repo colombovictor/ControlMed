@@ -1,4 +1,5 @@
 import { Sistema } from "./sistema.js";
+import { Familiar } from "./familiar.js";
  
 const sistema = Sistema.carregar();
  
@@ -11,6 +12,8 @@ if (!idUsuario) {
 }
  
 const usuario = sistema.buscarUsuario(idUsuario);
+console.log(usuario);
+console.log(document.getElementById("perfilNome"));
  
 if (!usuario) {
     alert("Usuário não encontrado.");
@@ -28,35 +31,33 @@ if (txtNomeCompleto) {
     txtNomeCompleto.textContent = `${usuario.nome} ${usuario.sobrenome}`;
 }
  
-const txtEmail = document.getElementById("txtEmail");
-if (txtEmail) {
-    txtEmail.textContent = usuario.getEmail();
-}
- 
-const Telefone = document.getElementById("Telefone");
-if (Telefone) {
-    Telefone.textContent = usuario.getTelefone() || "Não informado";
-}
- 
-const txtSexo = document.getElementById("txtSexo");
-if (txtSexo) {
-    txtSexo.textContent = usuario.sexo || "Não informado";
-}
- 
-const txtDataNascimento = document.getElementById("txtDataNascimento");
-if (txtDataNascimento) {
-    const data = usuario.getDataNascimento();
-    txtDataNascimento.textContent = data
-        ? new Date(data).toLocaleDateString("pt-BR")
-        : "Não informado";
-}
- 
-const txtDoencas = document.getElementById("txtDoencas");
-if (txtDoencas) {
-    const doencas = usuario.getDoenca();
-    txtDoencas.textContent =
-        doencas && doencas.length > 0 ? doencas.join(", ") : "Nenhuma informada";
-}
+(document.getElementById("perfilNome") as HTMLElement).textContent =
+    usuario.nome;
+
+(document.getElementById("perfilSobrenome") as HTMLElement).textContent =
+    usuario.sobrenome || "Não informado";
+
+(document.getElementById("perfilEmail") as HTMLElement).textContent =
+    usuario.getEmail();
+
+(document.getElementById("perfilTelefone") as HTMLElement).textContent =
+    usuario.getTelefone() || "Não informado";
+
+(document.getElementById("perfilSexo") as HTMLElement).textContent =
+    usuario.sexo;
+
+(document.getElementById("perfilNascimento") as HTMLElement).textContent =
+    usuario.getDataNascimento().toLocaleDateString() || "Não informado";;
+
+(document.getElementById("perfilDoencas") as HTMLElement).textContent =
+    usuario.getDoenca().length > 0
+        ? usuario.getDoenca().join(", ")
+        : "Nenhuma doença cadastrada";
+
+(document.getElementById("perfilTipo") as HTMLElement).textContent =
+    usuario instanceof Familiar
+        ? "Familiar"
+        : "Paciente";
  
 
 // RESUMO
