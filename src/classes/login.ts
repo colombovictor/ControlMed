@@ -1,46 +1,46 @@
-import { Sistema } from "./sistema.js";
+import { Sistema } from "./sistema.js"
 
-const sistema = Sistema.carregar();
-const usuarioLogado = localStorage.getItem("usuarioLogado");
+const sistema = Sistema.carregar()
+const usuarioLogado = localStorage.getItem("usuarioLogado")
 
 if (usuarioLogado) {
-    window.location.href = "home.html";
+    window.location.href = "home.html"
 }
 
-const formLogin = document.getElementById("formLogin") as HTMLFormElement | null;
+const formLogin = document.getElementById("formLogin") as HTMLFormElement | null
 
 if (formLogin) {
 
     formLogin.addEventListener("submit", (e) => {
 
-        e.preventDefault();
+        e.preventDefault()
 
         const email = (
             document.getElementById("loginEmail") as HTMLInputElement
-        ).value.trim();
+        ).value.trim()
 
         const senha = (
             document.getElementById("loginSenha") as HTMLInputElement
-        ).value;
+        ).value
 
         if (!email || !senha) {
 
-            alert("Preencha todos os campos.");
+            alert("Preencha todos os campos.")
 
-            return;
+            return
 
         }
 
-        const usuario = sistema.login(email, senha);
+        const usuario = sistema.login(email, senha)
 
         if (usuario) {
 
             localStorage.setItem(
                 "usuarioLogado",
                 String(usuario.idUsuario)
-            );
+            )
 
-            window.location.href = "home.html";
+            window.location.href = "home.html"
 
         } else {
 
@@ -48,11 +48,11 @@ if (formLogin) {
 
             (
                 document.getElementById("loginSenha") as HTMLInputElement
-            ).value = "";
+            ).value = ""
 
         }
 
-    });
+    })
 
 
 }

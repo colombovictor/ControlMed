@@ -1,25 +1,25 @@
 import { Sistema } from "./sistema.js";
 import { Familiar } from "./familiar.js";
  
-const sistema = Sistema.carregar();
+const sistema = Sistema.carregar()
  
-const idUsuario = Number(localStorage.getItem("usuarioLogado"));
+const idUsuario = Number(localStorage.getItem("usuarioLogado"))
  
 if (!idUsuario) {
-    alert("Nenhum usuário está logado.");
-    window.location.href = "telaDeLogin.html";
-    throw new Error("Usuário não está logado.");
+    alert("Nenhum usuário está logado.")
+    window.location.href = "telaDeLogin.html"
+    throw new Error("Usuário não está logado.")
 }
  
-const usuario = sistema.buscarUsuario(idUsuario);
-console.log(usuario);
-console.log(document.getElementById("perfilNome"));
+const usuario = sistema.buscarUsuario(idUsuario)
+console.log(usuario)
+console.log(document.getElementById("perfilNome"))
  
 if (!usuario) {
-    alert("Usuário não encontrado.");
-    localStorage.removeItem("usuarioLogado");
-    window.location.href = "telaDeLogin.html";
-    throw new Error("Usuário não encontrado.");
+    alert("Usuário não encontrado.")
+    localStorage.removeItem("usuarioLogado")
+    window.location.href = "telaDeLogin.html"
+    throw new Error("Usuário não encontrado.")
 }
  
 
@@ -82,12 +82,12 @@ if (txtQuantidadeFamiliares) {
 // LOGOUT
 
  
-const btnSair = document.getElementById("btnSair");
+const btnSair = document.getElementById("btnSair")
  
 if (btnSair) {
     btnSair.addEventListener("click", () => {
-        localStorage.removeItem("usuarioLogado");
-        window.location.href = "telaDeLogin.html";
-    });
+        localStorage.removeItem("usuarioLogado")
+        window.location.href = "telaDeLogin.html"
+    })
 }
  

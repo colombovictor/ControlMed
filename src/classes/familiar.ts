@@ -124,17 +124,17 @@ export class Familiar extends Usuario {
 
     public visualizarHistorico(idUsuario: number): void {
 
-        const usuario = this.buscarUsuario(idUsuario);
+        const usuario = this.buscarUsuario(idUsuario)
 
         if (!usuario) {
 
-            console.log("Usuário não encontrado.");
+            console.log("Usuário não encontrado.")
 
-            return;
+            return
 
         }
 
-        usuario.listarHistorico();
+        usuario.listarHistorico()
 
     }
 

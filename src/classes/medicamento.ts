@@ -58,31 +58,31 @@ export class Medicamento {
 
     if (this.estaVencido()) {
 
-        console.log("Medicamento vencido.");
-        return false;
+        console.log("Medicamento vencido.")
+        return false
 
     }
 
     if (this.estoque <= 0) {
 
-        console.log("Medicamento sem estoque.");
-        return false;
+        console.log("Medicamento sem estoque.")
+        return false
 
     }
 
     if (this.tomadoHoje) {
 
-        console.log("Medicamento já foi tomado hoje.");
-        return false;
+        console.log("Medicamento já foi tomado hoje.")
+        return false
 
     }
 
-    this.tomadoHoje = true;
-    this.estoque--;
+    this.tomadoHoje = true
+    this.estoque--
 
-    console.log(`${this.nome} tomado com sucesso.`);
+    console.log(`${this.nome} tomado com sucesso.`)
 
-    return true;
+    return true
 
 }
 

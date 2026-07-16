@@ -2,46 +2,46 @@ import { Sistema } from "./sistema.js";
 import { Usuario } from "./user.js";
 import { Familiar } from "./familiar.js";
 
-const sistema = Sistema.carregar();
+const sistema = Sistema.carregar()
 
-const formCadastro = document.getElementById("formCadastro") as HTMLFormElement | null;
+const formCadastro = document.getElementById("formCadastro") as HTMLFormElement | null
 
 if (formCadastro) {
     formCadastro.addEventListener("submit", (e: SubmitEvent) => {
-        e.preventDefault();
+        e.preventDefault()
 
-        const tipo = (document.getElementById("cadTipo") as HTMLSelectElement).value;
-        const nome = (document.getElementById("cadNome") as HTMLInputElement).value.trim();
-        const sobrenome = (document.getElementById("cadSobrenome") as HTMLInputElement).value.trim();
-        const email = (document.getElementById("cadEmail") as HTMLInputElement).value.trim();
-        const senha = (document.getElementById("cadSenha") as HTMLInputElement).value;
-        const telefone = (document.getElementById("cadTelefone") as HTMLInputElement).value.trim();
-        const dataNascimento = (document.getElementById("cadDataNascimento") as HTMLInputElement).value;
-        const sexo = (document.getElementById("cadSexo") as HTMLSelectElement).value;
-        const doencaTexto = (document.getElementById("cadDoenca") as HTMLInputElement).value.trim();
+        const tipo = (document.getElementById("cadTipo") as HTMLSelectElement).value
+        const nome = (document.getElementById("cadNome") as HTMLInputElement).value.trim()
+        const sobrenome = (document.getElementById("cadSobrenome") as HTMLInputElement).value.trim()
+        const email = (document.getElementById("cadEmail") as HTMLInputElement).value.trim()
+        const senha = (document.getElementById("cadSenha") as HTMLInputElement).value
+        const telefone = (document.getElementById("cadTelefone") as HTMLInputElement).value.trim()
+        const dataNascimento = (document.getElementById("cadDataNascimento") as HTMLInputElement).value
+        const sexo = (document.getElementById("cadSexo") as HTMLSelectElement).value
+        const doencaTexto = (document.getElementById("cadDoenca") as HTMLInputElement).value.trim()
 
         if (!nome || !email || !senha) {
-            alert("Preencha ao menos nome, email e senha.");
-            return;
+            alert("Preencha ao menos nome, email e senha.")
+            return
         }
 
         if (sistema.buscarUsuarioPorEmail(email)) {
-            alert("Já existe um usuário cadastrado com esse email.");
-            return;
+            alert("Já existe um usuário cadastrado com esse email.")
+            return
         }
         const doencas: string[] = doencaTexto
             ? doencaTexto
                 .split(",")
                 .map((d: string) => d.trim())
                 .filter(Boolean)
-            : [];
+            : []
         
-const id = sistema.proximoId();
+const id = sistema.proximoId()
 
 const Construtor =
     tipo === "familiar"
         ? Familiar
-        : Usuario;
+        : Usuario
 
 const novoUsuario = new Construtor(
     id,
@@ -53,18 +53,18 @@ const novoUsuario = new Construtor(
     sexo,
     telefone,
     doencas
-);
+)
         const emailVinculo = (
             document.getElementById("cadEmailVinculo") as HTMLInputElement
-        ).value.trim();
+        ).value.trim()
         
         if (emailVinculo !== "") {
             
-            const pessoa = sistema.buscarUsuarioPorEmail(emailVinculo);
+            const pessoa = sistema.buscarUsuarioPorEmail(emailVinculo)
             
             if (!pessoa) {
                 
-                alert("Usuário para vínculo não encontrado.");
+                alert("Usuário para vínculo não encontrado.")
                 
             } else {
                 
@@ -73,9 +73,9 @@ const novoUsuario = new Construtor(
                     pessoa instanceof Familiar
                 ) {
                     
-                    novoUsuario.adicionarFamiliar(pessoa);
+                    novoUsuario.adicionarFamiliar(pessoa)
                     
-                    pessoa.adicionarUsuario(novoUsuario);
+                    pessoa.adicionarUsuario(novoUsuario)
                     
                 }
                 
@@ -84,9 +84,9 @@ const novoUsuario = new Construtor(
                     pessoa instanceof Usuario
                 ) {
                     
-                    novoUsuario.adicionarUsuario(pessoa);
+                    novoUsuario.adicionarUsuario(pessoa)
                     
-                    pessoa.adicionarFamiliar(novoUsuario);
+                    pessoa.adicionarFamiliar(novoUsuario)
                     
                 }
                 
@@ -98,10 +98,10 @@ const novoUsuario = new Construtor(
         // ------------------------------
 
         
-        sistema.adicionarUsuario(novoUsuario);
-        sistema.salvar();
+        sistema.adicionarUsuario(novoUsuario)
+        sistema.salvar()
 
-        alert("Cadastro realizado com sucesso! Faça login para continuar.");
-        window.location.href = "telaDeLogin.html";
-    });
+        alert("Cadastro realizado com sucesso! Faça login para continuar.")
+        window.location.href = "telaDeLogin.html"
+    })
 }

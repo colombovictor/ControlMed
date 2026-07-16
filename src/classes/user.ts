@@ -133,22 +133,22 @@ export class Usuario {
     // Procura o medicamento pelo ID
     const medicamento = this.medicamentos.find(
         medicamento => medicamento.getId() === idMedicamento
-    );
+    )
 
-    // Verifica se encontrou
+   
     if (!medicamento) {
 
-        console.log("Medicamento não encontrado.");
+        console.log("Medicamento não encontrado.")
 
-        return;
+        return
 
     }
 
     // Guarda o estoque antes de tentar tomar
-    const estoqueAntes = medicamento.getEstoque();
+    const estoqueAntes = medicamento.getEstoque()
 
     // Tenta tomar o medicamento
-    medicamento.tomar();
+    medicamento.tomar()
 
     // Se o estoque diminuiu, significa que o medicamento foi tomado
     if (medicamento.getEstoque() < estoqueAntes) {
@@ -157,11 +157,11 @@ export class Usuario {
             this.historicos.length + 1,
             medicamento,
             "Tomado"
-        );
+        )
 
-        this.historicos.push(historico);
+        this.historicos.push(historico)
 
-        console.log("Histórico registrado com sucesso.");
+        console.log("Histórico registrado com sucesso.")
 
     }
 
@@ -169,7 +169,7 @@ export class Usuario {
 
 public quantidadeMedicamentos(): number {
 
-    return this.medicamentos.length;
+    return this.medicamentos.length
 
 }
 
@@ -177,7 +177,7 @@ public quantidadeMedicamentos(): number {
 
 public quantidadeHistoricos(): number {
 
-    return this.historicos.length;
+    return this.historicos.length
 
 }
 
@@ -190,7 +190,7 @@ public quantidadeHistoricos(): number {
     public adicionarFamiliar(familiar: Familiar): void {
 
         if (!this.familiares.includes(familiar)) {
-            this.familiares.push(familiar);
+            this.familiares.push(familiar)
         }
 
     }

@@ -1,115 +1,93 @@
 import { Sistema } from "./sistema.js";
 
-const sistema = Sistema.carregar();
+const sistema = Sistema.carregar()
 
-const idUsuario = Number(localStorage.getItem("usuarioLogado"));
+const idUsuario = Number(localStorage.getItem("usuarioLogado"))
 
 if (!idUsuario) {
 
-    alert("Nenhum usuário está logado.");
+    alert("Nenhum usuário está logado.")
 
-    window.location.href = "telaDeLogin.html";
+    window.location.href = "telaDeLogin.html"
 
-    throw new Error("Usuário não está logado.");
+    throw new Error("Usuário não está logado.")
 
 }
 
-const usuario = sistema.buscarUsuario(idUsuario);
+const usuario = sistema.buscarUsuario(idUsuario)
 
 if (!usuario) {
 
     if (!usuario) {
-    alert("Usuário não encontrado.");
+    alert("Usuário não encontrado.")
 
-    localStorage.removeItem("usuarioLogado"); 
+    localStorage.removeItem("usuarioLogado") 
 
-    window.location.href = "telaDeLogin.html";
+    window.location.href = "telaDeLogin.html"
 
-    throw new Error("Usuário não encontrado.");
+    throw new Error("Usuário não encontrado.")
 }
 
 }
-const txtBoasVindas = document.getElementById("txtBoasVindas");
+const txtBoasVindas = document.getElementById("txtBoasVindas")
 
 if (txtBoasVindas) {
 
     txtBoasVindas.textContent =
-        `Bem-vindo(a), ${usuario.nome} ${usuario.sobrenome}! 👋`;
+        `Bem-vindo(a), ${usuario.nome} ${usuario.sobrenome}! 👋`
 
 }
 
-// /////////////////////////////////////////////////
-// const sessaoId = localStorage.getItem("controlmed_sessao");
 
-// if (!sessaoId) {
-//     window.location.href = "telaDeLogin.html";
-// } else {
-//     const usuarioLogado = sistema.buscarUsuario(Number(sessaoId));
-
-//     if (!usuarioLogado) {
-//         // Sessão inválida (usuário não existe mais nos dados salvos)
-//         localStorage.removeItem("controlmed_sessao");
-//         window.location.href = "telaDeLogin.html";
-//     } else {
-//         const boasVindas = document.querySelector(".topbar p");
-//         if (boasVindas) {
-//             boasVindas.textContent = `Bem-vindo(a), ${usuarioLogado.nome}!`;
-//         }     
-//     }
-// }    
-
-///////////////////////////////////
-
-// ===============================
 // DADOS DO USUÁRIO
-// ===============================
 
-const txtNome = document.getElementById("txtNome");
+
+const txtNome = document.getElementById("txtNome")
 
 if (txtNome) {
-    txtNome.textContent = `${usuario.nome} ${usuario.sobrenome}`;
+    txtNome.textContent = `${usuario.nome} ${usuario.sobrenome}`
 }
 
-const txtEmail = document.getElementById("txtEmail");
+const txtEmail = document.getElementById("txtEmail")
 
 if (txtEmail) {
-    txtEmail.textContent = usuario.getEmail();
+    txtEmail.textContent = usuario.getEmail()
 }
 
-const txtTelefone = document.getElementById("txtTelefone");
+const txtTelefone = document.getElementById("txtTelefone")
 
 if (txtTelefone) {
-    txtTelefone.textContent = usuario.getTelefone();
+    txtTelefone.textContent = usuario.getTelefone()
 }
 
-const txtQuantidadeMedicamentos = document.getElementById("txtQuantidadeMedicamentos");
+const txtQuantidadeMedicamentos = document.getElementById("txtQuantidadeMedicamentos")
 
 if (txtQuantidadeMedicamentos) {
     txtQuantidadeMedicamentos.textContent =
-        usuario.quantidadeMedicamentos().toString();
+        usuario.quantidadeMedicamentos().toString()
 }
 
-const txtQuantidadeHistorico = document.getElementById("txtQuantidadeHistorico");
+const txtQuantidadeHistorico = document.getElementById("txtQuantidadeHistorico")
 
 if (txtQuantidadeHistorico) {
     txtQuantidadeHistorico.textContent =
-        usuario.quantidadeHistoricos().toString();
+        usuario.quantidadeHistoricos().toString()
 }
 
-// ===============================
-// LOGOUT
-// ===============================
 
-const btnSair = document.getElementById("btnSair");
+// LOGOUT
+
+
+const btnSair = document.getElementById("btnSair")
 
 if (btnSair) {
 
     btnSair.addEventListener("click", () => {
 
-        localStorage.removeItem("usuarioLogado");
+        localStorage.removeItem("usuarioLogado")
 
-        window.location.href = "telaDeLogin.html";
+        window.location.href = "telaDeLogin.html"
 
-    });
+    })
 
 }
