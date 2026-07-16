@@ -1,6 +1,11 @@
-import { Sistema } from "./sistema";
+import { Sistema } from "./sistema.js";
 
 const sistema = Sistema.carregar();
+const usuarioLogado = localStorage.getItem("usuarioLogado");
+
+if (usuarioLogado) {
+    window.location.href = "home.html";
+}
 
 const formLogin = document.getElementById("formLogin") as HTMLFormElement | null;
 
@@ -48,5 +53,6 @@ if (formLogin) {
         }
 
     });
+
 
 }

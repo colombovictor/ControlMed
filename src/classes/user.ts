@@ -1,6 +1,6 @@
-import { Medicamento } from "./medicamento"
-import { Historico } from "./historico"
-import { Familiar } from "./familiar"
+import { Medicamento } from "./medicamento.js"
+import { Historico } from "./historico.js"
+import { Familiar } from "./familiar.js"
 export class Usuario {
     idUsuario: number
     nome: string
@@ -167,6 +167,19 @@ export class Usuario {
 
 }
 
+public quantidadeMedicamentos(): number {
+
+    return this.medicamentos.length;
+
+}
+
+
+
+public quantidadeHistoricos(): number {
+
+    return this.historicos.length;
+
+}
 
     // public vincularFamiliar(familiar: Familiar[]): void {
 
@@ -263,16 +276,16 @@ export class Usuario {
 
         })
     }
-
-
 }
+
+// }
 // let usuario = new Usuario(
 //     1,
 //     "Giovana",
 //     "gio@email.com",
 //     "123456",
 //     "Alves",
-//     new Date("2004-06-29"),
+//     new Date('9 octub 2010'),
 //     "Feminino",
 //     "99999 - 9999",
 //     ["love"]

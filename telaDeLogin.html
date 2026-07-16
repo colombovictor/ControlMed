@@ -1,78 +1,69 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Login | ControlMed</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="shortcut icon"
-      href="src/img/prescricao-medica.png"
-      type="image/x-icon"
-    />
+  <title>Login | ControlMed</title>
 
-    <!-- ICONES (Font Awesome 6) -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
-  </head>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="src/img/prescricao-medica.png" type="image/x-icon" />
 
-  <body>
-    <section class="login-container">
-      <!-- FORM LOGIN -->
+  <!-- ICONES (Font Awesome 6) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
 
-      <div class="login-box">
-        <div class="login-topo">
-          <h2>Bem-vindo 👋</h2>
-          <p>Faça login para continuar no sistema</p>
-        </div>
+<body>
+  <section class="login-container">
+    <!-- FORM LOGIN -->
 
-        <form class="formulario">
-          <!-- Campo Email -->
-          <div class="campo">
-            <label for="loginEmail">Email</label>
-            <div class="input-icon">
-              <i class="fa-regular fa-envelope"></i>
-              <input type="email" id="loginEmail" placeholder="Digite seu email" required />
-            </div>
-          </div>
-
-          <!-- Campo Senha -->
-          <div class="campo">
-            <label for="loginSenha">Senha</label>
-            <div class="input-icon">
-              <i class="fa-solid fa-lock"></i>
-              <input type="password" id="loginSenha" placeholder="Digite sua senha" required />
-            </div>
-          </div>
-
-          <!-- Opções extras (Lembrar / Esqueci senha) -->
-          <div class="login-options">
-            <label class="remember">
-              <input type="checkbox" />
-              <span>Lembrar de mim</span>
-            </label>
-
-            <a href="telaEsqueceuSenha.html">Esqueceu a senha?</a>
-          </div>
-
-          <!-- Botão Entrar -->
-          <a href="home.html" class="btn-login">
-            <i class="fa-solid fa-right-to-bracket" style="margin-right: 8px;"></i> Entrar
-          </a>
-        </form>
-
-        <!-- Link para Cadastro -->
-        <div class="cadastro-link">
-          <p>
-            Não possui conta?
-            <a href="cadastroDeUsuario.html">Criar conta</a>
-          </p>
-        </div>
+    <div class="login-box">
+      <div class="login-topo">
+        <h2>Bem-vindo 👋</h2>
+        <p>Faça login para continuar no sistema</p>
       </div>
-    </section>
-  </body>
+
+      <form class="formulario" id="formLogin">
+        <div class="campo">
+          <label>Email</label>
+          <div class="input-icon">
+            <i class="fa-regular fa-envelope"></i>
+            <input type="email" id="loginEmail" placeholder="Digite seu email" required />
+          </div>
+        </div>
+
+        <div class="campo">
+          <label>Senha</label>
+          <div class="input-icon">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="loginSenha" placeholder="Digite sua senha" required />
+          </div>
+        </div>
+
+        <div class="login-options">
+          <label class="remember">
+            <input type="checkbox" />
+            <span>Lembrar de mim</span>
+          </label>
+          <a href="esqueceuSenha.html">Esqueceu a senha?</a>
+        </div>
+
+        <button type="submit" class="btn-login">
+          <i class="fa-solid fa-right-to-bracket" style="margin-right: 8px;"></i> Entrar
+        </button>
+      </form>
+
+      <!-- Link para Cadastro -->
+      <div class="cadastro-link">
+        <p>
+          Não possui conta?
+          <a href="cadastroDeUsuario.html">Criar conta</a>
+        </p>
+      </div>
+    </div>
+  </section>
+  <script type="module" src="./dist/classes/login.js"></script>
+</body>
+
 </html>

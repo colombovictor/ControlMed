@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil | ControlMed</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="src/img/prescricao-medica.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="home-container">
+
+        <header class="topbar">
+            <div class="topbar-info">
+                <h1>Meu Perfil 👤</h1>
+                <p>Suas informações cadastradas</p>
+            </div>
+            <a href="home.html" class="perfil-btn" style="text-decoration:none;">
+                <i class="fa-solid fa-house" style="font-size: 20px; color: #5b34f2;"></i>
+            </a>
+        </header>
+
+        <div class="container">
+
+            <section class="cards" style="grid-template-columns: 1fr;">
+                <div class="card roxo" style="align-items:flex-start; text-align:left;">
+                    <h2 id="txtNomeCompleto">-</h2>
+
+                    <p><strong>Email:</strong> <span id="txtEmail">-</span></p>
+                    <p><strong>Telefone:</strong> <span id="txtTelefone">-</span></p>
+                    <p><strong>Sexo:</strong> <span id="txtSexo">-</span></p>
+                    <p><strong>Data de Nascimento:</strong> <span id="txtDataNascimento">-</span></p>
+                    <p><strong>Doenças:</strong> <span id="txtDoencas">-</span></p>
+                </div>
+            </section>
+
+            <section class="atividade">
+                <h2>Resumo</h2>
+                <div class="atividade-box">
+                    <div class="atividade-item">
+                        <div class="atividade-status"></div>
+                        <div class="atividade-detalhes">
+                            <p>Medicamentos cadastrados</p>
+                            <span id="txtQuantidadeMedicamentos">0</span>
+                        </div>
+                    </div>
+                    <div class="atividade-item">
+                        <div class="atividade-status"></div>
+                        <div class="atividade-detalhes">
+                            <p>Registros de histórico</p>
+                            <span id="txtQuantidadeHistorico">0</span>
+                        </div>
+                    </div>
+                    <div class="atividade-item">
+                        <div class="atividade-status"></div>
+                        <div class="atividade-detalhes">
+                            <p>Familiares vinculados</p>
+                            <span id="txtQuantidadeFamiliares">0</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="botao" style="margin-top: 20px;">
+                <button id="btnSair" class="btn-login">
+                    <i class="fa-solid fa-right-from-bracket" style="margin-right: 8px;"></i>
+                    Sair da conta
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script type="module" src="/dist/classes/perfil.js""></script>
+</body>
+</html>

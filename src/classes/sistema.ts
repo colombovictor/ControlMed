@@ -1,5 +1,5 @@
-import { Usuario } from "./user";
-import { Familiar } from "./familiar";
+import { Usuario } from "./user.js";
+import { Familiar } from "./familiar.js";
 
 export class Sistema {
 
@@ -96,19 +96,31 @@ public salvar(): void {
 
 }
 public static carregar(): Sistema {
-
     const sistema = new Sistema();
-
     const dados = localStorage.getItem("controlmed");
 
     if (dados) {
+        const brutos: any[] = JSON.parse(dados);
 
-        sistema.usuarios = JSON.parse(dados);
+        sistema.usuarios = brutos.map((u) => {
+            // Familiar tem o campo "usuariosAcompanhados", Usuario comum não tem
+            const ehFamiliar = "usuariosAcompanhados" in u;
 
+            const instancia = ehFamiliar
+                ? new Familiar(0, "", "", "", "", new Date(), "", "", [])
+                : new Usuario(0, "", "", "", "", new Date(), "", "", []);
+
+            // copia todos os dados salvos por cima da instância "vazia"
+            Object.assign(instancia, u);
+
+            // datas viram string no JSON, precisa converter de volta
+            (instancia as any)._dataNascimento = new Date(u._dataNascimento);
+
+            return instancia;
+        });
     }
 
     return sistema;
-
 }
   
     // FAMILIARES
@@ -168,6 +180,19 @@ public static carregar(): Sistema {
         ).length;
 
     }
+    public proximoId(): number {
+
+    if (this.usuarios.length === 0) {
+        return 1;
+    }
+
+    const maiorId = Math.max(
+        ...this.usuarios.map(usuario => usuario.idUsuario)
+    );
+
+    return maiorId + 1;
+
+}
 
 }
 // let sistema = new Sistema()
