@@ -130,20 +130,28 @@ body {
 /* Centralização do Ícone nos Inputs */
 .input-icon {
     position: relative;
+    display: flex;
+    align-items: center; /* Centraliza o input verticalmente no container */
+    width: 100%;
 }
 
 .input-icon i {
     position: absolute;
     left: 16px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%); /* Força o alinhamento vertical exato no centro */
     color: #94a3b8;
     pointer-events: none;
     font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.input-icon input {
-    padding-left: 48px;
+.input-icon input,
+.input-icon select {
+    padding-left: 48px; /* Dá o espaço necessário para o texto não bater no ícone */
+    width: 100%;
 }
 
 /* ==========================================
@@ -163,6 +171,9 @@ button,
 .btn-login,
 .btn-recuperar {
     width: 100%;
+    max-width: 320px; /* Impede o botão de ficar gigante em telas grandes */
+    justify-self: center; /* Centraliza o botão dentro do Grid do formulário */
+    margin: 0 auto; /* Garante a centralização em outros contextos */
     height: 50px;
     border: none;
     border-radius: 12px;
@@ -267,6 +278,8 @@ a:hover {
     font-size: 26px;
     font-weight: 800;
     background: linear-gradient(135deg, #0f172a 0%, #5b34f2 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 4px;
     letter-spacing: -0.02em;
@@ -585,33 +598,4 @@ a:hover {
         padding: 22px;
         border-radius: 18px;
     }
-}
-
-/* ==========================================
-   AJUSTE DE ALINHAMENTO PARA INPUT COM ÍCONE
-   ========================================== */
-.input-icon {
-    position: relative;
-    display: flex;
-    align-items: center; /* Centraliza o input verticalmente no container */
-    width: 100%;
-}
-
-.input-icon i {
-    position: absolute;
-    left: 16px;
-    top: 50%;
-    transform: translateY(-50%); /* Força o alinhamento vertical exato no centro */
-    color: #94a3b8;
-    pointer-events: none;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.input-icon input,
-.input-icon select {
-    padding-left: 48px; /* Dá o espaço necessário para o texto não bater no ícone */
-    width: 100%;
 }
